@@ -195,7 +195,7 @@ const Index = () => {
 
               <div>
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-8">
-                  {t('Sourcing & Logistiek — Alles onder één dak', 'Sourcing & Logistics — All in One Solution')}
+                  {t('Sourcing & Logistiek - Alles onder één dak', 'Sourcing & Logistics - All in One Solution')}
                 </h1>
                 
                 <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl">
@@ -605,8 +605,8 @@ const Index = () => {
               </h2>
               <p className="text-lg lg:text-xl opacity-90 max-w-3xl mx-auto">
                 {t(
-                  'Van sourcing tot levering — alles onder één dak',
-                  'From sourcing to delivery — all under one roof'
+                  'Van sourcing tot levering - alles onder één dak',
+                  'From sourcing to delivery - all under one roof'
                 )}
               </p>
             </div>
@@ -648,7 +648,7 @@ const Index = () => {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                {t('Sourcing — Vind de juiste fabrikant', 'Sourcing — Find the right manufacturer')}
+                {t('Sourcing - Vind de juiste fabrikant', 'Sourcing - Find the right manufacturer')}
               </h2>
               <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto">
                 {t(
@@ -665,10 +665,10 @@ const Index = () => {
               </h3>
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                  {[
-                    { icon: Clock, nl: 'Urenlang zoeken zonder resultaat', en: 'Hours of searching without results' },
-                    { icon: TrendingDown, nl: 'Te hoge prijzen door beperkte onderhandelingspositie', en: 'Higher prices due to limited negotiation power' },
-                    { icon: AlertCircle, nl: 'Onzekerheid over kwaliteit en levertijd', en: 'Uncertainty about quality and lead times' },
+                {[
+                  { icon: Clock, nl: 'Urenlang zoeken zonder resultaat', en: 'Hours of searching without results' },
+                  { icon: TrendingDown, nl: 'Te hoge prijzen door beperkte onderhandelingspositie', en: 'Higher prices due to limited negotiation power' },
+                  { icon: AlertCircle, nl: 'Onzekerheid over kwaliteit en levertijd', en: 'Uncertainty about quality and lead times' },
                   ].map((challenge, i) => {
                     const Icon = challenge.icon;
                     return (
@@ -685,21 +685,21 @@ const Index = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   {[
-                    { icon: HelpCircle, nl: 'Onduidelijke MOQ\'s en totale kosten', en: 'Limited visibility on MOQs and total costs' },
-                    { icon: AlertTriangle, nl: 'Risico op onbetrouwbare leveranciers', en: 'Risk of unreliable suppliers or middlemen' },
-                  ].map((challenge, i) => {
-                    const Icon = challenge.icon;
-                    return (
+                  { icon: HelpCircle, nl: 'Onduidelijke MOQ\'s en totale kosten', en: 'Limited visibility on MOQs and total costs' },
+                  { icon: AlertTriangle, nl: 'Risico op onbetrouwbare leveranciers', en: 'Risk of unreliable suppliers or middlemen' },
+                ].map((challenge, i) => {
+                  const Icon = challenge.icon;
+                  return (
                       <Card key={i + 3} className="p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                         <div className="flex items-start gap-4 h-full">
-                          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-destructive/20 to-destructive/10 flex items-center justify-center flex-shrink-0">
-                            <Icon className="h-6 w-6 text-destructive" />
-                          </div>
-                          <p className="text-muted-foreground leading-relaxed pt-2 flex-grow">{t(challenge.nl, challenge.en)}</p>
+                        <div className="h-12 w-12 rounded-full bg-gradient-to-br from-destructive/20 to-destructive/10 flex items-center justify-center flex-shrink-0">
+                          <Icon className="h-6 w-6 text-destructive" />
                         </div>
-                      </Card>
-                    );
-                  })}
+                          <p className="text-muted-foreground leading-relaxed pt-2 flex-grow">{t(challenge.nl, challenge.en)}</p>
+                      </div>
+                    </Card>
+                  );
+                })}
                 </div>
               </div>
             </div>
@@ -707,45 +707,45 @@ const Index = () => {
             {/* Why Choose Us */}
             <div className="mb-24">
               <h3 className="text-3xl font-bold mb-10 text-center">
-                {t('Waarom kiezen voor ons:', 'Why choose us:')}
+                {t('Onze sourcing voordelen:', 'Our sourcing advantages:')}
               </h3>
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                   {[
-                    { icon: Building2, nl: 'Gespecialiseerd in sourcing vanuit China', en: 'Specialized in sourcing from China' },
-                    { icon: Handshake, nl: 'Sterk in onderhandelingen voor scherpe prijzen', en: 'Professional negotiations for competitive prices and clear terms' },
-                    { icon: ShieldCheck, nl: 'Leveranciers gecontroleerd op kwaliteit en certificeringen', en: 'Suppliers verified for quality and certifications' },
-                  ].map((item, i) => {
-                    const Icon = item.icon;
-                    return (
+                    { icon: Building2, nl: 'Directe toegang tot betrouwbare fabrikanten', en: 'Direct access to reliable manufacturers' },
+                    { icon: Handshake, nl: 'Ervaren onderhandelaars voor maximale besparing', en: 'Experienced negotiators for maximum savings' },
+                    { icon: ShieldCheck, nl: 'Kwaliteitscontrole en certificering verificatie', en: 'Quality control and certification verification' },
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
                     <Card key={i} className="p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center h-full">
                       <div className="flex flex-col items-center gap-4 h-full justify-center">
-                        <div className="h-14 w-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-                          <Icon className="h-7 w-7 text-primary" />
-                        </div>
-                        <p className="font-semibold text-lg leading-relaxed">{t(item.nl, item.en)}</p>
+                      <div className="h-14 w-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
+                        <Icon className="h-7 w-7 text-primary" />
                       </div>
-                    </Card>
-                    );
-                  })}
+                      <p className="font-semibold text-lg leading-relaxed">{t(item.nl, item.en)}</p>
+                    </div>
+                  </Card>
+                  );
+                })}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   {[
-                    { icon: Receipt, nl: 'Transparante all-in offertes inclusief handling fee', en: 'Transparent all-in quotes including handling fee' },
-                    { icon: Users, nl: 'Lokale teams in China & Nederland voor communicatie en toezicht', en: 'Local teams in China & the Netherlands for fast communication and oversight' },
+                    { icon: Receipt, nl: 'Transparante prijzen zonder verborgen kosten', en: 'Transparent pricing without hidden costs' },
+                    { icon: Users, nl: 'Persoonlijke begeleiding van A tot Z', en: 'Personal guidance from A to Z' },
                   ].map((item, i) => {
-                    const Icon = item.icon;
-                    return (
+                  const Icon = item.icon;
+                  return (
                     <Card key={i + 3} className="p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center h-full">
                       <div className="flex flex-col items-center gap-4 h-full justify-center">
-                        <div className="h-14 w-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-                          <Icon className="h-7 w-7 text-primary" />
-                        </div>
-                        <p className="font-semibold text-lg leading-relaxed">{t(item.nl, item.en)}</p>
+                      <div className="h-14 w-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
+                        <Icon className="h-7 w-7 text-primary" />
                       </div>
-                    </Card>
-                    );
-                  })}
+                      <p className="font-semibold text-lg leading-relaxed">{t(item.nl, item.en)}</p>
+                    </div>
+                  </Card>
+                  );
+                })}
                 </div>
               </div>
             </div>
@@ -833,7 +833,7 @@ const Index = () => {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                {t('Logistiek — Wereldwijd transport vanuit China', 'Logistics — Worldwide shipping from China')}
+                {t('Logistiek - Wereldwijd transport vanuit China', 'Logistics - Worldwide shipping from China')}
               </h2>
               <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto">
                 {t(
@@ -876,14 +876,14 @@ const Index = () => {
             {/* Why choose us for logistics */}
             <div className="mb-20">
               <h3 className="text-3xl font-bold mb-8 text-center">
-                {t('Waarom kiezen voor ons:', 'Why choose us:')}
+                {t('Onze logistieke voordelen:', 'Our logistics advantages:')}
               </h3>
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                   {[
-                    { nl: 'Gespecialiseerd in import & transport vanuit China', en: 'Specialized in importing & shipping from China' },
-                    { nl: 'Concurrerende all-in tarieven inclusief handling fee', en: 'Competitive all-in pricing including handling fee' },
-                    { nl: 'Douaneafhandeling en documentatie volledig geregeld', en: 'Full customs clearance and documentation handled' },
+                    { nl: 'Wereldwijde transportoplossingen vanuit China', en: 'Global transport solutions from China' },
+                    { nl: 'All-in tarieven inclusief douane en handling', en: 'All-in rates including customs and handling' },
+                    { nl: 'Snelle en veilige levering naar jouw deur', en: 'Fast and secure delivery to your door' },
                   ].map((item, i) => (
                     <Card key={i} className="p-6 hover:shadow-xl transition-all duration-300 h-full">
                       <div className="flex items-start gap-4 h-full">
@@ -897,18 +897,18 @@ const Index = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   {[
-                    { nl: 'Real-time tracking en heldere communicatie', en: 'Real-time tracking and clear communication' },
-                    { nl: 'Levering rechtstreeks van leverancier naar jouw deur', en: 'Direct delivery from supplier to your door' },
+                    { nl: 'Real-time tracking en proactieve updates', en: 'Real-time tracking and proactive updates' },
+                    { nl: 'Flexibele transportopties voor elke behoefte', en: 'Flexible transport options for every need' },
                   ].map((item, i) => (
                     <Card key={i + 3} className="p-6 hover:shadow-xl transition-all duration-300 h-full">
                       <div className="flex items-start gap-4 h-full">
-                        <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <CheckCircle2 className="h-5 w-5 text-primary" />
-                        </div>
-                        <p className="font-medium flex-grow">{t(item.nl, item.en)}</p>
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <CheckCircle2 className="h-5 w-5 text-primary" />
                       </div>
-                    </Card>
-                  ))}
+                        <p className="font-medium flex-grow">{t(item.nl, item.en)}</p>
+                    </div>
+                  </Card>
+                ))}
                 </div>
               </div>
             </div>
@@ -1014,7 +1014,7 @@ const Index = () => {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                {t('Over ons — Uw partner in groei', 'About us — Your partner in growth')}
+                {t('Over ons - Uw partner in groei', 'About us - Your partner in growth')}
               </h2>
               <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto">
                 {t(
@@ -1029,9 +1029,9 @@ const Index = () => {
               <h3 className="text-3xl font-bold mb-8 text-center">{t('Onze kracht:', 'Our strengths:')}</h3>
               <div className="max-w-5xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  {[
-                    { nl: 'Sterk netwerk van fabrikanten en logistieke partners in China', en: 'Strong network of factories and logistics partners in China' },
-                    { nl: 'Teams in China én Nederland voor begeleiding en communicatie', en: 'Teams in both China and the Netherlands for support and communication' },
+                {[
+                  { nl: 'Sterk netwerk van fabrikanten en logistieke partners in China', en: 'Strong network of factories and logistics partners in China' },
+                  { nl: 'Teams in China én Nederland voor begeleiding en communicatie', en: 'Teams in both China and the Netherlands for support and communication' },
                   ].map((item, i) => (
                     <Card key={i} className="p-6 hover:shadow-xl transition-all duration-300 h-full">
                       <div className="flex items-start gap-4 h-full">
@@ -1043,16 +1043,16 @@ const Index = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {[
-                    { nl: 'Transparante all-in prijzen inclusief sourcing, logistiek en handling fee', en: 'Transparent all-in pricing covering sourcing, logistics, and handling fee' },
-                    { nl: 'Focus op beste prijs-kwaliteit en maximale marge voor onze klanten', en: 'Focus on best price-quality and maximizing customer margins' },
-                  ].map((item, i) => (
+                  { nl: 'Transparante all-in prijzen inclusief sourcing, logistiek en handling fee', en: 'Transparent all-in pricing covering sourcing, logistics, and handling fee' },
+                  { nl: 'Focus op beste prijs-kwaliteit en maximale marge voor onze klanten', en: 'Focus on best price-quality and maximizing customer margins' },
+                ].map((item, i) => (
                     <Card key={i + 2} className="p-6 hover:shadow-xl transition-all duration-300 h-full">
                       <div className="flex items-start gap-4 h-full">
-                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                         <p className="font-medium flex-grow">{t(item.nl, item.en)}</p>
-                      </div>
-                    </Card>
-                  ))}
+                    </div>
+                  </Card>
+                ))}
                 </div>
               </div>
             </div>
