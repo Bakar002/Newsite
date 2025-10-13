@@ -11,9 +11,17 @@ const Footer = () => {
     <footer className="bg-[hsl(var(--night-gray))] text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* About Storeify */}
+          {/* About Storify */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary">Storeify</h3>
+            <div className="mb-6">
+              <div className="bg-white p-6 rounded-2xl shadow-lg inline-block">
+                <img 
+                  src="/src/assets/logo/storifylogo.png" 
+                  alt="Storify Logo" 
+                  className="h-32 w-auto"
+                />
+              </div>
+            </div>
             <p className="text-gray-300 leading-relaxed">
               {t(
                 'Uw partner voor sourcing en logistiek vanuit China. Bespaar tijd en verhoog uw marge.',
@@ -114,7 +122,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Storeify. {t('Alle rechten voorbehouden.', 'All rights reserved.')}</p>
+          <p>&copy; {new Date().getFullYear()} Storify. {t('Alle rechten voorbehouden.', 'All rights reserved.')}</p>
         </div>
       </div>
     </footer>

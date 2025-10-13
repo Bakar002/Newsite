@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Package } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -28,9 +28,12 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex h-24 items-center justify-between">
           {/* Logo */}
-          <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }} className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer">
-            <Package className="h-10 w-10 text-primary" />
-            <span className="text-4xl font-bold text-primary tracking-tight">Storeify</span>
+          <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }} className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
+            <img 
+              src="/src/assets/logo/storifylogo.png" 
+              alt="Storify Logo" 
+              className="h-32 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}
