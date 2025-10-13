@@ -16,7 +16,7 @@ const Footer = () => {
             <div className="mb-6">
               <div className="bg-white p-6 rounded-2xl shadow-lg inline-block">
                 <img 
-                  src="/src/assets/logo/storifylogo.png" 
+                  src="/storifylogo.png" 
                   alt="Storify Logo" 
                   className="h-32 w-auto"
                 />

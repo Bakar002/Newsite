@@ -30,7 +30,7 @@ const Navigation = () => {
           {/* Logo */}
           <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }} className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
             <img 
-              src="/src/assets/logo/storifylogo.png" 
+              src="/storifylogo.png" 
               alt="Storify Logo" 
               className="h-32 w-auto"
             />
