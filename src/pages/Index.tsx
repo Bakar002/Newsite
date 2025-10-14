@@ -42,8 +42,8 @@ const Index = () => {
     },
     {
       Icon: CheckCircle2,
-      textNl: 'Transparante all-in tarieven (sourcing + logistiek + handling fee)',
-      textEn: 'Transparent all-in pricing (sourcing + logistics + handling fee)',
+      textNl: 'Transparante all-in tarieven',
+      textEn: 'Transparent all-in pricing',
     },
     {
       Icon: Users,
@@ -186,12 +186,13 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh] py-16 max-w-7xl mx-auto">
             {/* Left Column - Content */}
             <div className="space-y-10 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
-                <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-sm font-bold text-primary uppercase tracking-widest whitespace-nowrap">
-                  {t('Sourcing & Logistics Experts', 'Sourcing & Logistics Experts')}
-                </span>
-              </div>
+            <div className="inline-flex items-center gap-2 px-3 py-2 bg-primary/10 border border-primary/20 rounded-full w-fit">
+  <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
+  <span className="text-sm font-bold text-primary uppercase tracking-wider whitespace-nowrap">
+    {t('Sourcing & Logistics Experts', 'Sourcing & Logistics Experts')}
+  </span>
+</div>
+
 
               <div>
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-8">
@@ -419,22 +420,32 @@ const Index = () => {
                           <Plane className="h-8 w-8 text-primary" />
                           <span className="font-semibold">{t('Luchtvracht', 'Air freight')}</span>
                         </div>
-                        <span className="text-primary font-bold">3-12 {t('dagen', 'days')}</span>
+                        <span className="text-primary font-bold">3-14{t('dagen', 'days')}</span>
                       </div>
                       <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
                         <div className="flex items-center gap-3">
                           <Ship className="h-8 w-8 text-primary" />
                           <span className="font-semibold">{t('Zeevracht', 'Sea freight')}</span>
                         </div>
-                        <span className="text-primary font-bold">20-40 {t('dagen', 'days')}</span>
+                        <span className="text-primary font-bold">20-55 {t('dagen', 'days')}</span>
                       </div>
                       <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
                         <div className="flex items-center gap-3">
                           <Train className="h-8 w-8 text-primary" />
                           <span className="font-semibold">{t('Treintransport', 'Rail freight')}</span>
                         </div>
-                        <span className="text-primary font-bold">20-30 {t('dagen', 'days')}</span>
+                        <span className="text-primary font-bold">20-40 {t('dagen', 'days')}</span>
                       </div>
+                    </div>
+                    
+                    {/* Disclaimer */}
+                    <div className="mt-4 p-3 bg-muted/30 rounded-lg border-l-4 border-l-primary/20">
+                      <p className="text-sm text-muted-foreground italic">
+                        {t(
+                          'Dit zijn gemiddelde doorlooptijden; de werkelijke transportduur kan korter of langer zijn afhankelijk van omstandigheden.',
+                          'These are average lead times; actual shipping duration may be shorter or longer depending on circumstances.'
+                        )}
+                      </p>
                     </div>
                   </div>
 
@@ -570,10 +581,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                {t('Sourcing - Vind de juiste fabrikant', 'Sourcing - Find the right manufacturer')}
+              <h2 className="text-5xl lg:text-6xl font-bold mb-2 tracking-tight text-primary">
+                {t('Sourcing', 'Sourcing')}
               </h2>
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-2xl lg:text-3xl text-black mb-6 font-semibold">
+                {t('Vind de juiste fabrikant', 'Find the right manufacturer')}
+              </p>
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t(
                   'Wij zoeken, selecteren en onderhandelen direct met fabrikanten in China. Zo krijg jij betrouwbare productie, de beste prijs en duidelijke afspraken.',
                   'We search, shortlist, and negotiate directly with factories in China. This ensures reliable production, the best pricing, and clear terms.'
@@ -755,10 +769,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                {t('Logistiek - Wereldwijd transport vanuit China', 'Logistics - Worldwide shipping from China')}
+              <h2 className="text-5xl lg:text-6xl font-bold mb-2 tracking-tight text-primary">
+                {t('Logistiek', 'Logistics')}
               </h2>
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-2xl lg:text-3xl text-black mb-6 font-semibold">
+                {t('Wereldwijd transport vanuit China', 'Worldwide shipping from China')}
+              </p>
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t(
                   'Wij regelen jouw transport volledig vanuit China – snel, veilig en voordelig.',
                   'We manage your transport fully from China – fast, safe, and cost-effective.'
@@ -773,7 +790,7 @@ const Index = () => {
                   <Plane className="h-10 w-10 text-secondary" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">{t('Luchtvracht', 'Air Freight')}</h3>
-                <div className="text-4xl font-bold text-primary mb-4">3-12 {t('dagen', 'days')}</div>
+                <div className="text-4xl font-bold text-primary mb-4">3-14 {t('dagen', 'days')}</div>
                 <p className="text-muted-foreground flex-grow">{t('Snelste optie voor urgente zendingen', 'Fastest option for urgent shipments')}</p>
               </Card>
 
@@ -782,7 +799,7 @@ const Index = () => {
                   <Ship className="h-10 w-10 text-secondary" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">{t('Zeevracht', 'Sea Freight')}</h3>
-                <div className="text-4xl font-bold text-primary mb-4">20-40 {t('dagen', 'days')}</div>
+                <div className="text-4xl font-bold text-primary mb-4">20-55 {t('dagen', 'days')}</div>
                 <p className="text-muted-foreground flex-grow">{t('Meest economisch voor grote volumes', 'Most economical for large volumes')}</p>
               </Card>
 
@@ -791,9 +808,21 @@ const Index = () => {
                   <Train className="h-10 w-10 text-secondary" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">{t('Treintransport', 'Train Transport')}</h3>
-                <div className="text-4xl font-bold text-primary mb-4">20-30 {t('dagen', 'days')}</div>
+                <div className="text-4xl font-bold text-primary mb-4">20-40 {t('dagen', 'days')}</div>
                 <p className="text-muted-foreground flex-grow">{t('Balans tussen snelheid en kosten', 'Balance between speed and cost')}</p>
               </Card>
+            </div>
+
+            {/* Shipping Times Disclaimer */}
+            <div className="mb-16 max-w-4xl mx-auto">
+              <div className="p-4 bg-muted/30 rounded-lg border-l-4 border-l-primary/20 text-center">
+                <p className="text-sm text-muted-foreground italic">
+                  {t(
+                    'Dit zijn gemiddelde doorlooptijden; de werkelijke transportduur kan korter of langer zijn afhankelijk van omstandigheden.',
+                    'These are average lead times; actual shipping duration may be shorter or longer depending on circumstances.'
+                  )}
+                </p>
+              </div>
             </div>
 
             {/* Why choose us for logistics */}
@@ -896,10 +925,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                {t('Over ons - Uw partner in groei', 'About us - Your partner in growth')}
+              <h2 className="text-5xl lg:text-6xl font-bold mb-2 tracking-tight text-primary">
+                {t('Over ons', 'About us')}
               </h2>
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-2xl lg:text-3xl text-black mb-6 font-semibold">
+                {t('Uw partner in groei', 'Your partner in growth')}
+              </p>
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t(
                   'Wij zijn uw betrouwbare partner voor sourcing en logistiek vanuit China. Met kantoren in Nederland en China bieden wij lokale aanwezigheid, sterke onderhandelingen en complete begeleiding.',
                   'We are your trusted partner for sourcing and logistics from China. With offices in the Netherlands and China, we provide local presence, strong negotiations and full support.'
