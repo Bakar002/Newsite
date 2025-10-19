@@ -13,28 +13,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState } from 'react';
-import { toast } from 'sonner';
-
 const Contact = () => {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success(
-      t(
-        'Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.',
-        'Thank you for your message! We will contact you as soon as possible.'
-      )
-    );
-    setFormData({ name: '', email: '', company: '', message: '' });
-  };
 
   const faqsNl = [
     {
@@ -150,43 +130,70 @@ const Contact = () => {
               <h2 className="text-2xl font-bold mb-6">
                 {t('Stuur ons een bericht', 'Send us a message')}
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                action="https://formsubmit.co/contact@storeify.co" 
+                method="POST" 
+                target="_blank"
+                className="space-y-6"
+              >
+                {/* Hidden fields for FormSubmit */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://storefiy.co/thank-you" />
+                <input type="hidden" name="_subject" value="New Contact Form Submission - Contact Page" />
+                <input type="hidden" name="_template" value="table" />
+                
                 <div>
-                  <Label htmlFor="name">{t('Naam', 'Name')} *</Label>
+                  <Label htmlFor="contact-name">{t('Naam', 'Name')} *</Label>
                   <Input
-                    id="name"
+                    id="contact-name"
+                    name="name"
                     required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder={t('Uw naam', 'Your name')}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email">Email *</Label>
+                  <Label htmlFor="contact-email">Email *</Label>
                   <Input
-                    id="email"
+                    id="contact-email"
+                    name="email"
                     type="email"
                     required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder={t('uw@email.nl', 'your@email.com')}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="company">{t('Bedrijf', 'Company')}</Label>
+                  <Label htmlFor="contact-company">{t('Bedrijf', 'Company')}</Label>
                   <Input
-                    id="company"
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    id="contact-company"
+                    name="company"
+                    placeholder={t('Uw bedrijfsnaam', 'Your company name')}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="message">{t('Bericht', 'Message')} *</Label>
+                  <Label htmlFor="contact-message">{t('Bericht', 'Message')} *</Label>
                   <Textarea
-                    id="message"
+                    id="contact-message"
+                    name="message"
                     required
                     rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder={t('Uw bericht...', 'Your message...')}
                   />
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  <p>
+                    {t(
+                      'Door dit formulier in te dienen, gaat u akkoord met onze ',
+                      'By submitting this form, you agree to our '
+                    )}
+                    <a href="/terms-conditions" className="text-primary hover:underline">
+                      {t('Algemene Voorwaarden', 'Terms & Conditions')}
+                    </a>
+                    {t(' en ', ' and ')}
+                    <a href="/privacy-policy" className="text-primary hover:underline">
+                      {t('Privacybeleid', 'Privacy Policy')}
+                    </a>
+                    .
+                  </p>
                 </div>
                 <Button type="submit" size="lg" className="w-full">
                   {t('Verstuur bericht', 'Send message')}

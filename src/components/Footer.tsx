@@ -106,23 +106,59 @@ const Footer = () => {
                   'Stay informed with our newsletter'
                 )}
               </p>
-              <div className="flex gap-2">
+              <form 
+                action="https://formsubmit.co/contact@storeify.co" 
+                method="POST" 
+                target="_blank"
+                className="flex gap-2"
+              >
+                {/* Hidden fields for FormSubmit */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://storefiy.co/thank-you" />
+                <input type="hidden" name="_subject" value="Newsletter Subscription Request" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="form_type" value="newsletter" />
+                
                 <Input
+                  name="email"
                   type="email"
                   placeholder={t('E-mail adres', 'Email address')}
                   className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  required
                 />
-                <Button size="lg" className="shrink-0">
+                <Button type="submit" size="lg" className="shrink-0">
                   {t('Aanmelden', 'Sign up')}
                 </Button>
-              </div>
+              </form>
+              <p className="text-xs text-gray-400 mt-2">
+                {t(
+                  'Door aan te melden gaat u akkoord met onze ',
+                  'By signing up you agree to our '
+                )}
+                <Link to="/privacy-policy" className="text-primary hover:underline">
+                  {t('Privacybeleid', 'Privacy Policy')}
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Storify. {t('Alle rechten voorbehouden.', 'All rights reserved.')}</p>
+        {/* Legal Links */}
+        <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-wrap gap-6 text-sm">
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors">
+                {t('Privacybeleid', 'Privacy Policy')}
+              </Link>
+              <Link to="/terms-conditions" className="text-gray-400 hover:text-primary transition-colors">
+                {t('Algemene Voorwaarden', 'Terms & Conditions')}
+              </Link>
+            </div>
+            <p className="text-gray-400 text-sm">
+              &copy; {new Date().getFullYear()} Storify. {t('Alle rechten voorbehouden.', 'All rights reserved.')}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

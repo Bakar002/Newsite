@@ -1114,22 +1114,71 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
               {/* Contact Form */}
               <Card className="p-8 h-full flex flex-col">
-                <form className="space-y-6 flex-grow flex flex-col">
+                <form 
+                  action="https://formsubmit.co/contact@storeify.co" 
+                  method="POST" 
+                  target="_blank"
+                  className="space-y-6 flex-grow flex flex-col"
+                >
+                  {/* Hidden fields for FormSubmit */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" value="https://storefiy.co/thank-you" />
+                  <input type="hidden" name="_subject" value="New Contact Form Submission - Homepage" />
+                  <input type="hidden" name="_template" value="table" />
+                  
                   <div>
-                    <label className="block text-sm font-medium mb-2">{t('Naam', 'Name')}</label>
-                    <Input placeholder={t('Uw naam', 'Your name')} />
+                    <label htmlFor="homepage-name" className="block text-sm font-medium mb-2">{t('Naam', 'Name')} *</label>
+                    <Input 
+                      id="homepage-name"
+                      name="name"
+                      placeholder={t('Uw naam', 'Your name')} 
+                      required 
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">{t('E-mail', 'Email')}</label>
-                    <Input type="email" placeholder={t('uw@email.nl', 'your@email.com')} />
+                    <label htmlFor="homepage-email" className="block text-sm font-medium mb-2">{t('E-mail', 'Email')} *</label>
+                    <Input 
+                      id="homepage-email"
+                      name="email"
+                      type="email" 
+                      placeholder={t('uw@email.nl', 'your@email.com')} 
+                      required 
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">{t('Bedrijf', 'Company')}</label>
-                    <Input placeholder={t('Uw bedrijfsnaam', 'Your company name')} />
+                    <label htmlFor="homepage-company" className="block text-sm font-medium mb-2">{t('Bedrijf', 'Company')}</label>
+                    <Input 
+                      id="homepage-company"
+                      name="company"
+                      placeholder={t('Uw bedrijfsnaam', 'Your company name')} 
+                    />
                   </div>
                   <div className="flex-grow">
-                    <label className="block text-sm font-medium mb-2">{t('Bericht', 'Message')}</label>
-                    <Textarea rows={5} placeholder={t('Uw bericht...', 'Your message...')} className="h-full" />
+                    <label htmlFor="homepage-message" className="block text-sm font-medium mb-2">{t('Bericht', 'Message')} *</label>
+                    <Textarea 
+                      id="homepage-message"
+                      name="message"
+                      rows={5} 
+                      placeholder={t('Uw bericht...', 'Your message...')} 
+                      className="h-full" 
+                      required 
+                    />
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    <p>
+                      {t(
+                        'Door dit formulier in te dienen, gaat u akkoord met onze ',
+                        'By submitting this form, you agree to our '
+                      )}
+                      <a href="/terms-conditions" className="text-primary hover:underline">
+                        {t('Algemene Voorwaarden', 'Terms & Conditions')}
+                      </a>
+                      {t(' en ', ' and ')}
+                      <a href="/privacy-policy" className="text-primary hover:underline">
+                        {t('Privacybeleid', 'Privacy Policy')}
+                      </a>
+                      .
+                    </p>
                   </div>
                   <Button type="submit" size="lg" className="w-full">
                     {t('Gratis consultatie plannen', 'Free consultation')}
