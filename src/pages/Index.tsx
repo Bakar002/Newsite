@@ -195,11 +195,11 @@ const Index = () => {
 
 
               <div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-8">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] mb-6">
                   {t('Sourcing & Logistiek - Alles onder één dak', 'Sourcing & Logistics - All in One Solution')}
                 </h1>
                 
-                <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-xl">
                   {t(
                     'Bespaar tijd en verhoog je marge. Wij zijn gespecialiseerd in sourcing en logistiek vanuit China.',
                     'Save time and increase your margins. We specialize in sourcing and logistics from China.'
@@ -207,10 +207,10 @@ const Index = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-5">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="text-lg px-10 py-7 shadow-2xl hover:shadow-primary/20 hover:scale-105 transition-all duration-300"
+                  className="text-base px-8 py-4 shadow-xl hover:shadow-primary/20 hover:scale-105 transition-all duration-300"
                   onClick={() => scrollToSection('#contact')}
                 >
                   {t('Plan gratis consultatie', 'Free consultation')}
@@ -218,7 +218,7 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="text-lg px-10 py-7 border-2 hover:bg-primary/5 transition-all duration-300"
+                  className="text-base px-8 py-4 border-2 hover:bg-primary/5 transition-all duration-300"
                   onClick={() => scrollToSection('#contact')}
                 >
                   {t('Ontvang jouw all-in offerte', 'Get your all-in quote today')}
@@ -283,11 +283,11 @@ const Index = () => {
       <section id="services" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
                 {t('Onze diensten', 'Our Services')}
               </h2>
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t(
                   'Alles wat je nodig hebt voor succesvol importeren vanuit China',
                   'Everything you need for successful importing from China'
@@ -297,9 +297,9 @@ const Index = () => {
 
             <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
               {/* Sourcing Service Card */}
-              <Card className="p-10 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+              <Card className="p-6 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="flex-grow flex flex-col justify-between">
-                <div className="space-y-8">
+                <div className="space-y-6">
                   {/* Header */}
                   <div className="border-b border-border pb-6">
                     <div className="flex items-center gap-4 mb-4">
@@ -387,9 +387,9 @@ const Index = () => {
               </Card>
 
               {/* Logistics Service Card */}
-              <Card className="p-10 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+              <Card className="p-6 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="flex-grow flex flex-col justify-between">
-                <div className="space-y-8">
+                <div className="space-y-6">
                   {/* Header */}
                   <div className="border-b border-border pb-6">
                     <div className="flex items-center gap-4 mb-4">
@@ -503,8 +503,8 @@ const Index = () => {
       <section className="py-20 bg-accent/50">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
                 {t('Waarom kiezen voor ons', 'Why choose us')}
               </h2>
             </div>
@@ -513,12 +513,12 @@ const Index = () => {
               {usps.map((usp, index) => {
                 const Icon = usp.Icon;
                 return (
-                  <Card key={index} className="p-10 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-card border-l-4 border-l-primary h-full flex flex-col">
+                  <Card key={index} className="p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-card border-l-4 border-l-primary h-full flex flex-col">
                     <div className="flex-grow flex flex-col text-center">
                       <div className="h-20 w-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                         <Icon className="h-10 w-10 text-primary" />
                       </div>
-                      <h3 className="text-2xl font-bold leading-tight flex-grow flex items-center justify-center">{t(usp.textNl, usp.textEn)}</h3>
+                      <h3 className="text-lg font-bold leading-tight flex-grow flex items-center justify-center">{t(usp.textNl, usp.textEn)}</h3>
                     </div>
                   </Card>
                 );
@@ -533,11 +533,11 @@ const Index = () => {
       <section className="py-12 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
                 {t('Onze kernexpertise', 'Our core expertise')}
               </h2>
-              <p className="text-lg lg:text-xl opacity-90 max-w-3xl mx-auto">
+              <p className="text-base lg:text-lg opacity-90 max-w-3xl mx-auto">
                 {t(
                   'Van sourcing tot levering - alles onder één dak',
                   'From sourcing to delivery - all under one roof'
@@ -562,8 +562,8 @@ const Index = () => {
                         <div className="h-14 w-14 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
                           <Icon className="h-7 w-7" />
                         </div>
-                        <h3 className="text-xl font-bold mb-3">{t(service.titleNl, service.titleEn)}</h3>
-                        <p className="text-primary-foreground/90 leading-relaxed px-2 flex-grow flex items-center justify-center">
+                        <h3 className="text-lg font-bold mb-3">{t(service.titleNl, service.titleEn)}</h3>
+                        <p className="text-primary-foreground/90 leading-relaxed px-2 flex-grow flex items-center justify-center text-sm">
                           {t(service.descNl, service.descEn)}
                         </p>
                       </div>
@@ -580,14 +580,14 @@ const Index = () => {
       <section id="sourcing" className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-2 tracking-tight text-primary">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight text-primary">
                 {t('Sourcing', 'Sourcing')}
               </h2>
-              <p className="text-2xl lg:text-3xl text-black mb-6 font-semibold">
+              <p className="text-xl lg:text-2xl text-black mb-4 font-semibold">
                 {t('Vind de juiste fabrikant', 'Find the right manufacturer')}
               </p>
-              <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto">
                 {t(
                   'Wij zoeken, selecteren en onderhandelen direct met fabrikanten in China. Zo krijg jij betrouwbare productie, de beste prijs en duidelijke afspraken.',
                   'We search, shortlist, and negotiate directly with factories in China. This ensures reliable production, the best pricing, and clear terms.'
@@ -597,7 +597,7 @@ const Index = () => {
 
             {/* Challenges */}
             <div className="mb-12">
-              <h3 className="text-3xl font-bold mb-10 text-center">
+              <h3 className="text-2xl font-bold mb-8 text-center">
                 {t('Uitdagingen in het sourcingproces:', 'Challenges in sourcing:')}
               </h3>
               <div className="max-w-6xl mx-auto">
@@ -609,7 +609,7 @@ const Index = () => {
                   ].map((challenge, i) => {
                     const Icon = challenge.icon;
                     return (
-                      <Card key={i} className="p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+                      <Card key={i} className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                         <div className="flex items-start gap-4 h-full">
                           <div className="h-12 w-12 rounded-full bg-gradient-to-br from-destructive/20 to-destructive/10 flex items-center justify-center flex-shrink-0">
                             <Icon className="h-6 w-6 text-destructive" />
@@ -643,7 +643,7 @@ const Index = () => {
 
             {/* Why Choose Us */}
             <div className="mb-12">
-              <h3 className="text-3xl font-bold mb-10 text-center">
+              <h3 className="text-2xl font-bold mb-8 text-center">
                 {t('Onze sourcing voordelen:', 'Our sourcing advantages:')}
               </h3>
               <div className="max-w-6xl mx-auto">
@@ -689,7 +689,7 @@ const Index = () => {
 
             {/* Sourcing Packages */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <Card className="p-10 border-2 border-primary hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 relative h-full flex flex-col bg-gradient-to-br from-primary/5 to-transparent">
+              <Card className="p-6 border-2 border-primary hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 relative h-full flex flex-col bg-gradient-to-br from-primary/5 to-transparent">
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-full text-sm font-bold shadow-lg">
                   {t('Populair', 'Popular')}
                 </div>
@@ -698,12 +698,12 @@ const Index = () => {
                     <Star className="h-7 w-7 text-primary-foreground fill-current" />
                   </div>
                   <div>
-                    <h3 className="text-3xl font-bold mb-2">Basic Sourcing</h3>
-                    <div className="text-5xl font-bold text-primary">€99</div>
+                    <h3 className="text-2xl font-bold mb-2">Basic Sourcing</h3>
+                    <div className="text-4xl font-bold text-primary">€99</div>
                   </div>
                 </div>
                 <div className="space-y-4 flex-grow">
-                  <p className="text-muted-foreground leading-relaxed text-lg">
+                  <p className="text-muted-foreground leading-relaxed text-base">
                     {t(
                       'Shortlist met beste leveranciers en prijzen. Vergelijking op kwaliteit, MOQ en levertijd. Het bedrag wordt volledig verrekend als je via ons inkoopt.',
                       'Shortlist with best suppliers and prices. Comparison of quality, MOQs, and lead times. Credited in full if you continue procurement with us.'
@@ -726,18 +726,18 @@ const Index = () => {
                 </div>
               </Card>
 
-              <Card className="p-10 border-2 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+              <Card className="p-6 border-2 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="h-14 w-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center flex-shrink-0">
                     <Package className="h-7 w-7 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-3xl font-bold mb-2">Plus Sourcing</h3>
-                    <div className="text-5xl font-bold text-primary">€199</div>
+                    <h3 className="text-2xl font-bold mb-2">Plus Sourcing</h3>
+                    <div className="text-4xl font-bold text-primary">€199</div>
                   </div>
                 </div>
                 <div className="space-y-4 flex-grow">
-                  <p className="text-muted-foreground leading-relaxed text-lg">
+                  <p className="text-muted-foreground leading-relaxed text-base">
                     {t(
                       'Alles van Basic, inclusief volledige leveranciersgegevens → direct contact mogelijk. Ideaal als je zelf verder wilt gaan zonder begeleiding.',
                       'Everything in Basic, including full supplier details → direct contact enabled. Ideal if you prefer to continue independently.'
@@ -768,14 +768,14 @@ const Index = () => {
       <section id="logistics" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-2 tracking-tight text-primary">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight text-primary">
                 {t('Logistiek', 'Logistics')}
               </h2>
-              <p className="text-2xl lg:text-3xl text-black mb-6 font-semibold">
+              <p className="text-xl lg:text-2xl text-black mb-4 font-semibold">
                 {t('Wereldwijd transport vanuit China', 'Worldwide shipping from China')}
               </p>
-              <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto">
                 {t(
                   'Wij regelen jouw transport volledig vanuit China – snel, veilig en voordelig.',
                   'We manage your transport fully from China – fast, safe, and cost-effective.'
@@ -785,30 +785,30 @@ const Index = () => {
 
             {/* Transport Options */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
-              <Card className="p-10 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+              <Card className="p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                 <div className="h-20 w-20 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-6">
                   <Plane className="h-10 w-10 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{t('Luchtvracht', 'Air Freight')}</h3>
-                <div className="text-4xl font-bold text-primary mb-4">3-14 {t('dagen', 'days')}</div>
+                <h3 className="text-xl font-bold mb-3">{t('Luchtvracht', 'Air Freight')}</h3>
+                <div className="text-3xl font-bold text-primary mb-4">3-14 {t('dagen', 'days')}</div>
                 <p className="text-muted-foreground flex-grow">{t('Snelste optie voor urgente zendingen', 'Fastest option for urgent shipments')}</p>
               </Card>
 
-              <Card className="p-10 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+              <Card className="p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                 <div className="h-20 w-20 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-6">
                   <Ship className="h-10 w-10 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{t('Zeevracht', 'Sea Freight')}</h3>
-                <div className="text-4xl font-bold text-primary mb-4">20-55 {t('dagen', 'days')}</div>
+                <h3 className="text-xl font-bold mb-3">{t('Zeevracht', 'Sea Freight')}</h3>
+                <div className="text-3xl font-bold text-primary mb-4">20-55 {t('dagen', 'days')}</div>
                 <p className="text-muted-foreground flex-grow">{t('Meest economisch voor grote volumes', 'Most economical for large volumes')}</p>
               </Card>
 
-              <Card className="p-10 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+              <Card className="p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                 <div className="h-20 w-20 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-6">
                   <Train className="h-10 w-10 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{t('Treintransport', 'Train Transport')}</h3>
-                <div className="text-4xl font-bold text-primary mb-4">20-40 {t('dagen', 'days')}</div>
+                <h3 className="text-xl font-bold mb-3">{t('Treintransport', 'Train Transport')}</h3>
+                <div className="text-3xl font-bold text-primary mb-4">20-40 {t('dagen', 'days')}</div>
                 <p className="text-muted-foreground flex-grow">{t('Balans tussen snelheid en kosten', 'Balance between speed and cost')}</p>
               </Card>
             </div>
@@ -827,7 +827,7 @@ const Index = () => {
 
             {/* Why choose us for logistics */}
             <div className="mb-12">
-              <h3 className="text-3xl font-bold mb-8 text-center">
+              <h3 className="text-2xl font-bold mb-6 text-center">
                 {t('Onze logistieke voordelen:', 'Our logistics advantages:')}
               </h3>
               <div className="max-w-6xl mx-auto">
@@ -873,45 +873,45 @@ const Index = () => {
       <section id="target-audience" className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
                 {t('Voor wie wij werken', 'Who we work for')}
               </h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-              <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <Rocket className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 flex-grow flex items-center justify-center">
+                <h3 className="text-lg font-bold mb-3 flex-grow flex items-center justify-center">
                   {t('Startende ondernemers en bestaande bedrijven met een eigen merk', 'Startups & established brands')}
                 </h3>
               </Card>
 
-              <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <ShoppingCart className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 flex-grow flex items-center justify-center">
+                <h3 className="text-lg font-bold mb-3 flex-grow flex items-center justify-center">
                   {t('E-commerce & marketplace verkopers', 'E-commerce & marketplace sellers')}
                 </h3>
               </Card>
 
-              <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <Store className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 flex-grow flex items-center justify-center">
+                <h3 className="text-lg font-bold mb-3 flex-grow flex items-center justify-center">
                   {t('Retailers en groothandels', 'Retailers and wholesalers')}
                 </h3>
               </Card>
 
-              <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <Coffee className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 flex-grow flex items-center justify-center">
+                <h3 className="text-lg font-bold mb-3 flex-grow flex items-center justify-center">
                   {t('Horeca en hotels (non-food)', 'Hospitality & hotels (non-food)')}
                 </h3>
               </Card>
@@ -924,14 +924,14 @@ const Index = () => {
       <section id="about" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-2 tracking-tight text-primary">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight text-primary">
                 {t('Over ons', 'About us')}
               </h2>
-              <p className="text-2xl lg:text-3xl text-black mb-6 font-semibold">
+              <p className="text-xl lg:text-2xl text-black mb-4 font-semibold">
                 {t('Uw partner in groei', 'Your partner in growth')}
               </p>
-              <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto">
                 {t(
                   'Wij zijn uw betrouwbare partner voor sourcing en logistiek vanuit China. Met kantoren in Nederland en China bieden wij lokale aanwezigheid, sterke onderhandelingen en complete begeleiding.',
                   'We are your trusted partner for sourcing and logistics from China. With offices in the Netherlands and China, we provide local presence, strong negotiations and full support.'
@@ -941,7 +941,7 @@ const Index = () => {
 
             {/* Our Strengths */}
             <div className="mb-12">
-              <h3 className="text-3xl font-bold mb-8 text-center">{t('Onze kracht:', 'Our strengths:')}</h3>
+              <h3 className="text-2xl font-bold mb-6 text-center">{t('Onze kracht:', 'Our strengths:')}</h3>
               <div className="max-w-5xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 {[
