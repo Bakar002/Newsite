@@ -6,6 +6,8 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { useState } from 'react';
+import { toast } from 'sonner';
 import { 
   Package, MessageSquare, ClipboardCheck, Truck, CheckCircle2, TrendingUp, Shield, Users,
   Search, TrendingDown, XCircle, Plane, Ship, Train, Building2, Store, Coffee, Rocket,
@@ -21,11 +23,62 @@ import officeTeam from '@/assets/office-team-iso.png';
 
 const Index = () => {
   const { t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formsubmit.co/Contact@storeify.co', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        toast.success(
+          t(
+            '🎉 Bedankt voor uw bericht! We nemen binnen 24 uur contact met u op.',
+            '🎉 Thank you for your message! We will contact you within 24 hours.'
+          ),
+          {
+            description: t(
+              'Uw aanvraag is succesvol verzonden. We kijken ernaar uit om met u samen te werken!',
+              'Your request has been sent successfully. We look forward to working with you!'
+            ),
+            duration: 5000,
+          }
+        );
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      toast.error(
+        t(
+          '❌ Er is een fout opgetreden bij het versturen van uw bericht.',
+          '❌ An error occurred while sending your message.'
+        ),
+        {
+          description: t(
+            'Probeer het later opnieuw of neem direct contact met ons op via Contact@storeify.co',
+            'Please try again later or contact us directly at Contact@storeify.co'
+          ),
+          duration: 5000,
+        }
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -767,7 +820,7 @@ const Index = () => {
                 </div>
                 <div className="pt-6 mt-auto">
                   <a href="#contact" className="w-full block">
-                    <Button variant="primary" size="lg" className="w-full">
+                    <Button variant="default" size="lg" className="w-full">
                       {t('Vraag Plus Sourcing aan', 'Request Plus Sourcing')}
                     </Button>
                   </a>
@@ -1139,14 +1192,11 @@ const Index = () => {
                 </div>
 
                 <form 
-                  action="https://formsubmit.co/Contact@storeify.co" 
-                  method="POST" 
-                  target="_blank"
+                  onSubmit={handleFormSubmit}
                   className="p-6 space-y-5 flex-grow flex flex-col"
                 >
                   {/* Hidden fields for FormSubmit */}
                   <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_next" value="https://www.storeify.co/thank-you" />
                   <input type="hidden" name="_subject" value="New Contact Form Submission - Homepage" />
                   <input type="hidden" name="_template" value="table" />
                   
@@ -1245,9 +1295,13 @@ const Index = () => {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {t('Gratis consultatie plannen', 'Free consultation')}
+                    {isSubmitting 
+                      ? t('Bezig met versturen...', 'Sending...') 
+                      : t('Gratis consultatie plannen', 'Free consultation')
+                    }
                   </Button>
                 </form>
               </Card>

@@ -3,9 +3,62 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Mail, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const Footer = () => {
   const { t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formsubmit.co/Contact@storeify.co', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        toast.success(
+          t(
+            '🎉 Bedankt voor uw aanmelding!',
+            '🎉 Thank you for subscribing!'
+          ),
+          {
+            description: t(
+              'U bent succesvol aangemeld voor onze nieuwsbrief.',
+              'You have successfully subscribed to our newsletter.'
+            ),
+            duration: 4000,
+          }
+        );
+        form.reset();
+      } else {
+        throw new Error('Newsletter subscription failed');
+      }
+    } catch (error) {
+      toast.error(
+        t(
+          '❌ Er is een fout opgetreden bij het aanmelden.',
+          '❌ An error occurred while subscribing.'
+        ),
+        {
+          description: t(
+            'Probeer het later opnieuw.',
+            'Please try again later.'
+          ),
+          duration: 4000,
+        }
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <footer className="bg-[hsl(var(--night-gray))] text-white">
@@ -103,14 +156,11 @@ const Footer = () => {
                 )}
               </p>
               <form 
-                action="https://formsubmit.co/Contact@storeify.co" 
-                method="POST" 
-                target="_blank"
+                onSubmit={handleNewsletterSubmit}
                 className="flex gap-2"
               >
                 {/* Hidden fields for FormSubmit */}
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://www.storeify.co/thank-you" />
                 <input type="hidden" name="_subject" value="Newsletter Subscription Request" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="form_type" value="newsletter" />
@@ -122,8 +172,16 @@ const Footer = () => {
                   className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                   required
                 />
-                <Button type="submit" size="lg" className="shrink-0">
-                  {t('Aanmelden', 'Sign up')}
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  disabled={isSubmitting}
+                  className="shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting 
+                    ? t('Bezig...', 'Sending...') 
+                    : t('Aanmelden', 'Sign up')
+                  }
                 </Button>
               </form>
               <p className="text-xs text-gray-400 mt-2">
