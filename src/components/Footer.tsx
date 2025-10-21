@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -86,11 +86,7 @@ const Footer = () => {
             <ul className="space-y-3 mb-6">
               <li className="flex items-center gap-2 text-gray-300">
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="text-sm">{t('info@jouwdomein.com', 'info@yourdomain.com')}</span>
-              </li>
-              <li className="flex items-center gap-2 text-gray-300">
-                <Phone className="h-4 w-4 text-primary" />
-                <span className="text-sm">+31 (0)6 1234 5678</span>
+                <span className="text-sm">Contact@storeify.co</span>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <MapPin className="h-4 w-4 text-primary" />
@@ -107,14 +103,14 @@ const Footer = () => {
                 )}
               </p>
               <form 
-                action="https://formsubmit.co/contact@storeify.co" 
+                action="https://formsubmit.co/Contact@storeify.co" 
                 method="POST" 
                 target="_blank"
                 className="flex gap-2"
               >
                 {/* Hidden fields for FormSubmit */}
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://storefiy.co/thank-you" />
+                <input type="hidden" name="_next" value="https://www.storeify.co/thank-you" />
                 <input type="hidden" name="_subject" value="Newsletter Subscription Request" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="form_type" value="newsletter" />
@@ -140,6 +136,16 @@ const Footer = () => {
                 </Link>
                 .
               </p>
+              
+              {/* Company Information */}
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <p className="text-xs text-gray-400">
+                  {t(
+                    'KvK: 83929991  •  BTW: NL003892322B46',
+                    'Chamber of Commerce (KvK): 83929991  •  VAT: NL003892322B46'
+                  )}
+                </p>
+              </div>
             </div>
           </div>
         </div>

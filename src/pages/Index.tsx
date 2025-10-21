@@ -9,7 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { 
   Package, MessageSquare, ClipboardCheck, Truck, CheckCircle2, TrendingUp, Shield, Users,
   Search, TrendingDown, XCircle, Plane, Ship, Train, Building2, Store, Coffee, Rocket,
-  ShoppingCart, Globe, Award, MapPin, Mail, Phone, Clock, AlertCircle, HelpCircle, 
+  ShoppingCart, Globe, Award, MapPin, Mail, Clock, AlertCircle, HelpCircle, 
   AlertTriangle, Handshake, ShieldCheck, Receipt, Star
 } from 'lucide-react';
 import heroWarehouse from '@/assets/hero-warehouse-new.jpg';
@@ -724,6 +724,13 @@ const Index = () => {
                     </li>
                   </ul>
                 </div>
+                <div className="pt-6">
+                  <a href="#contact" className="w-full block">
+                    <Button variant="secondary" size="lg" className="w-full">
+                      {t('Vraag Basic Sourcing aan', 'Request Basic Sourcing')}
+                    </Button>
+                  </a>
+                </div>
               </Card>
 
               <Card className="p-6 border-2 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
@@ -757,6 +764,13 @@ const Index = () => {
                       <span className="text-muted-foreground">{t('Direct contact mogelijk', 'Direct contact enabled')}</span>
                     </li>
                   </ul>
+                </div>
+                <div className="pt-6 mt-auto">
+                  <a href="#contact" className="w-full block">
+                    <Button variant="primary" size="lg" className="w-full">
+                      {t('Vraag Plus Sourcing aan', 'Request Plus Sourcing')}
+                    </Button>
+                  </a>
                 </div>
               </Card>
             </div>
@@ -1113,74 +1127,126 @@ const Index = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
               {/* Contact Form */}
-              <Card className="p-8 h-full flex flex-col">
+              <Card className="relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-background to-primary/5 h-full flex flex-col shadow-2xl">
+                {/* Header with gradient background */}
+                <div className="bg-gradient-to-r from-primary to-primary/80 p-6 text-primary-foreground">
+                  <h3 className="text-2xl font-bold mb-2">
+                    {t('Start jouw project', 'Start your project')}
+                  </h3>
+                  <p className="text-primary-foreground/90 text-sm">
+                    {t('Vul het formulier in en wij nemen binnen 24 uur contact met je op', 'Fill out the form and we\'ll contact you within 24 hours')}
+                  </p>
+                </div>
+
                 <form 
-                  action="https://formsubmit.co/contact@storeify.co" 
+                  action="https://formsubmit.co/Contact@storeify.co" 
                   method="POST" 
                   target="_blank"
-                  className="space-y-6 flex-grow flex flex-col"
+                  className="p-6 space-y-5 flex-grow flex flex-col"
                 >
                   {/* Hidden fields for FormSubmit */}
                   <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_next" value="https://storefiy.co/thank-you" />
+                  <input type="hidden" name="_next" value="https://www.storeify.co/thank-you" />
                   <input type="hidden" name="_subject" value="New Contact Form Submission - Homepage" />
                   <input type="hidden" name="_template" value="table" />
                   
-                  <div>
-                    <label htmlFor="homepage-name" className="block text-sm font-medium mb-2">{t('Naam', 'Name')} *</label>
-                    <Input 
-                      id="homepage-name"
-                      name="name"
-                      placeholder={t('Uw naam', 'Your name')} 
-                      required 
-                    />
+                  {/* Form Fields Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="homepage-name" className="block text-sm font-semibold mb-2 text-foreground">
+                        {t('Naam', 'Name')} *
+                      </label>
+                      <Input 
+                        id="homepage-name"
+                        name="name"
+                        placeholder={t('Uw naam', 'Your name')} 
+                        required 
+                        className="border-2 focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="homepage-email" className="block text-sm font-semibold mb-2 text-foreground">
+                        {t('E-mail', 'Email')} *
+                      </label>
+                      <Input 
+                        id="homepage-email"
+                        name="email"
+                        type="email" 
+                        placeholder={t('uw@email.nl', 'your@email.com')} 
+                        required 
+                        className="border-2 focus:border-primary transition-colors"
+                      />
+                    </div>
                   </div>
+
                   <div>
-                    <label htmlFor="homepage-email" className="block text-sm font-medium mb-2">{t('E-mail', 'Email')} *</label>
-                    <Input 
-                      id="homepage-email"
-                      name="email"
-                      type="email" 
-                      placeholder={t('uw@email.nl', 'your@email.com')} 
-                      required 
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="homepage-company" className="block text-sm font-medium mb-2">{t('Bedrijf', 'Company')}</label>
+                    <label htmlFor="homepage-company" className="block text-sm font-semibold mb-2 text-foreground">
+                      {t('Bedrijf', 'Company')}
+                    </label>
                     <Input 
                       id="homepage-company"
                       name="company"
                       placeholder={t('Uw bedrijfsnaam', 'Your company name')} 
+                      className="border-2 focus:border-primary transition-colors"
                     />
                   </div>
+
+                  <div>
+                    <label htmlFor="homepage-service" className="block text-sm font-semibold mb-2 text-foreground">
+                      {t('Service interesse', 'Service Interest')} *
+                    </label>
+                    <select 
+                      id="homepage-service"
+                      name="service_interest"
+                      required
+                      className="w-full px-3 py-3 border-2 border-input bg-background rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus:border-primary transition-colors"
+                    >
+                      <option value="">{t('Selecteer een service', 'Select a service')}</option>
+                      <option value="sourcing">{t('Sourcing - Vind de juiste fabrikant', 'Sourcing - Find the right manufacturer')}</option>
+                      <option value="logistics">{t('Logistiek - Transport vanuit China', 'Logistics - Shipping from China')}</option>
+                      <option value="both">{t('Beide - Sourcing en Logistiek', 'Both - Sourcing and Logistics')}</option>
+                      <option value="consultation">{t('Gratis consultatie', 'Free consultation')}</option>
+                    </select>
+                  </div>
+
                   <div className="flex-grow">
-                    <label htmlFor="homepage-message" className="block text-sm font-medium mb-2">{t('Bericht', 'Message')} *</label>
+                    <label htmlFor="homepage-message" className="block text-sm font-semibold mb-2 text-foreground">
+                      {t('Bericht', 'Message')} *
+                    </label>
                     <Textarea 
                       id="homepage-message"
                       name="message"
-                      rows={5} 
-                      placeholder={t('Uw bericht...', 'Your message...')} 
-                      className="h-full" 
+                      rows={4} 
+                      placeholder={t('Vertel ons over jouw project en behoeften...', 'Tell us about your project and needs...')} 
+                      className="h-full border-2 focus:border-primary transition-colors resize-none" 
                       required 
                     />
                   </div>
-                  <div className="text-sm text-muted-foreground">
-                    <p>
+
+                  {/* Privacy Notice */}
+                  <div className="bg-muted/50 rounded-lg p-4 border border-border/50">
+                    <p className="text-xs text-muted-foreground leading-relaxed">
                       {t(
                         'Door dit formulier in te dienen, gaat u akkoord met onze ',
                         'By submitting this form, you agree to our '
                       )}
-                      <a href="/terms-conditions" className="text-primary hover:underline">
+                      <a href="/terms-conditions" className="text-primary hover:underline font-medium">
                         {t('Algemene Voorwaarden', 'Terms & Conditions')}
                       </a>
                       {t(' en ', ' and ')}
-                      <a href="/privacy-policy" className="text-primary hover:underline">
+                      <a href="/privacy-policy" className="text-primary hover:underline font-medium">
                         {t('Privacybeleid', 'Privacy Policy')}
                       </a>
                       .
                     </p>
                   </div>
-                  <Button type="submit" size="lg" className="w-full">
+
+                  {/* Submit Button */}
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
                     {t('Gratis consultatie plannen', 'Free consultation')}
                   </Button>
                 </form>
@@ -1188,55 +1254,98 @@ const Index = () => {
 
               {/* Contact Info */}
               <div className="space-y-6 flex flex-col">
-                <Card className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-6 w-6 text-primary" />
+                {/* Contact Methods */}
+                <div className="grid grid-cols-1 gap-4">
+                  {/* Email Card */}
+                  <Card className="group relative overflow-hidden border-2 border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-background to-primary/5">
+                    <div className="p-6">
+                      <div className="flex items-center gap-4">
+                        <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Mail className="h-7 w-7 text-primary" />
+                        </div>
+                        <div className="flex-grow">
+                          <h3 className="font-bold text-lg mb-1 text-foreground">{t('E-mail', 'Email')}</h3>
+                          <p className="text-muted-foreground font-medium">Contact@storeify.co</p>
+                          <p className="text-xs text-muted-foreground mt-1">{t('Reactie binnen 24 uur', 'Response within 24 hours')}</p>
+                        </div>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-1">{t('E-mail', 'Email')}</h3>
-                      <p className="text-muted-foreground">{t('info@jouwdomein.com', 'info@yourdomain.com')}</p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
 
-                <Card className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-6 w-6 text-primary" />
+                  {/* Location Card */}
+                  <Card className="group relative overflow-hidden border-2 border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-background to-primary/5">
+                    <div className="p-6">
+                      <div className="flex items-center gap-4">
+                        <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <MapPin className="h-7 w-7 text-primary" />
+                        </div>
+                        <div className="flex-grow">
+                          <h3 className="font-bold text-lg mb-1 text-foreground">{t('Kantoren', 'Offices')}</h3>
+                          <p className="text-muted-foreground font-medium">{t('Nederland & China', 'Netherlands & China')}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{t('Lokale teams wereldwijd', 'Local teams worldwide')}</p>
+                        </div>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-1">{t('Telefoon', 'Phone')}</h3>
-                      <p className="text-muted-foreground">+31 (0)6 1234 5678</p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </div>
 
-                <Card className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-1">{t('Kantoor', 'Offices')}</h3>
-                      <p className="text-muted-foreground">{t('Nederland & China', 'Netherlands & China')}</p>
-                    </div>
+                {/* CTA Card */}
+                <Card className="relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground shadow-2xl flex-grow">
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -translate-y-16 translate-x-16"></div>
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/20 rounded-full translate-y-12 -translate-x-12"></div>
                   </div>
-                </Card>
+                  
+                  <div className="relative p-8 flex flex-col h-full">
+                    <div className="flex-grow">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="h-12 w-12 rounded-2xl bg-white/20 flex items-center justify-center">
+                          <Star className="h-6 w-6 text-primary-foreground" />
+                        </div>
+                        <h3 className="text-2xl font-bold">
+                          {t('All-in offerte aanvragen', 'Get all-in quote')}
+                        </h3>
+                      </div>
+                      
+                      <p className="text-primary-foreground/90 text-base leading-relaxed mb-6">
+                        {t(
+                          'Ontvang een gedetailleerde offerte inclusief sourcing, logistiek en alle kosten. Geen verborgen kosten, volledig transparant.',
+                          'Get a detailed quote including sourcing, logistics and all costs. No hidden fees, fully transparent.'
+                        )}
+                      </p>
 
-                <Card className="p-8 bg-primary text-primary-foreground flex-grow">
-                  <h3 className="text-2xl font-bold mb-4">
-                    {t('All-in offerte aanvragen', 'Get all-in quote')}
-                  </h3>
-                  <p className="mb-6 opacity-90 flex-grow">
-                    {t(
-                      'Of plan een gratis consultatie om jouw mogelijkheden te bespreken',
-                      'Or schedule a free consultation to discuss your options'
-                    )}
-                  </p>
-                  <Button variant="secondary" size="lg" className="w-full">
-                    {t('All-in offerte aanvragen', 'Get all-in quote')}
-                  </Button>
+                      <div className="space-y-3 mb-6">
+                        <div className="flex items-center gap-3 text-sm">
+                          <div className="h-2 w-2 bg-primary-foreground/60 rounded-full"></div>
+                          <span>{t('Gratis consultatie', 'Free consultation')}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-sm">
+                          <div className="h-2 w-2 bg-primary-foreground/60 rounded-full"></div>
+                          <span>{t('Transparante all-in prijzen', 'Transparent all-in pricing')}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-sm">
+                          <div className="h-2 w-2 bg-primary-foreground/60 rounded-full"></div>
+                          <span>{t('Persoonlijke begeleiding', 'Personal guidance')}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <Button 
+                      variant="secondary" 
+                      size="lg" 
+                      className="w-full bg-white text-primary hover:bg-white/90 font-semibold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+                      onClick={() => scrollToSection('#contact')}
+                    >
+                      {t('All-in offerte aanvragen', 'Get all-in quote')}
+                    </Button>
+                  </div>
                 </Card>
               </div>
             </div>

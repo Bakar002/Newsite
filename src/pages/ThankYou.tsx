@@ -65,8 +65,8 @@ const ThankYou = () => {
                     'Heeft u dringende vragen? Neem direct contact met ons op via ',
                     'Have urgent questions? Contact us directly via '
                   )}
-                  <a href="mailto:contact@storefiy.co" className="text-primary hover:underline">
-                    contact@storefiy.co
+                  <a href="mailto:Contact@storeify.co" className="text-primary hover:underline">
+                    Contact@storeify.co
                   </a>
                 </p>
               </div>

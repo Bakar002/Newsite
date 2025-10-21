@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -126,76 +126,126 @@ const Contact = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
             {/* Contact Form */}
-            <Card className="p-8">
-              <h2 className="text-2xl font-bold mb-6">
-                {t('Stuur ons een bericht', 'Send us a message')}
-              </h2>
+            <Card className="relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-background to-primary/5 shadow-2xl">
+              {/* Header with gradient background */}
+              <div className="bg-gradient-to-r from-primary to-primary/80 p-6 text-primary-foreground">
+                <h2 className="text-2xl font-bold mb-2">
+                  {t('Stuur ons een bericht', 'Send us a message')}
+                </h2>
+                <p className="text-primary-foreground/90 text-sm">
+                  {t('Vul het formulier in en wij nemen binnen 24 uur contact met je op', 'Fill out the form and we\'ll contact you within 24 hours')}
+                </p>
+              </div>
+
               <form 
-                action="https://formsubmit.co/contact@storeify.co" 
+                action="https://formsubmit.co/Contact@storeify.co" 
                 method="POST" 
                 target="_blank"
-                className="space-y-6"
+                className="p-6 space-y-5"
               >
                 {/* Hidden fields for FormSubmit */}
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://storefiy.co/thank-you" />
+                <input type="hidden" name="_next" value="https://www.storeify.co/thank-you" />
                 <input type="hidden" name="_subject" value="New Contact Form Submission - Contact Page" />
                 <input type="hidden" name="_template" value="table" />
                 
-                <div>
-                  <Label htmlFor="contact-name">{t('Naam', 'Name')} *</Label>
-                  <Input
-                    id="contact-name"
-                    name="name"
-                    required
-                    placeholder={t('Uw naam', 'Your name')}
-                  />
+                {/* Form Fields Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="contact-name" className="text-sm font-semibold text-foreground">
+                      {t('Naam', 'Name')} *
+                    </Label>
+                    <Input
+                      id="contact-name"
+                      name="name"
+                      required
+                      placeholder={t('Uw naam', 'Your name')}
+                      className="border-2 focus:border-primary transition-colors mt-2"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="contact-email" className="text-sm font-semibold text-foreground">
+                      Email *
+                    </Label>
+                    <Input
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder={t('uw@email.nl', 'your@email.com')}
+                      className="border-2 focus:border-primary transition-colors mt-2"
+                    />
+                  </div>
                 </div>
+
                 <div>
-                  <Label htmlFor="contact-email">Email *</Label>
-                  <Input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder={t('uw@email.nl', 'your@email.com')}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="contact-company">{t('Bedrijf', 'Company')}</Label>
+                  <Label htmlFor="contact-company" className="text-sm font-semibold text-foreground">
+                    {t('Bedrijf', 'Company')}
+                  </Label>
                   <Input
                     id="contact-company"
                     name="company"
                     placeholder={t('Uw bedrijfsnaam', 'Your company name')}
+                    className="border-2 focus:border-primary transition-colors mt-2"
                   />
                 </div>
+
                 <div>
-                  <Label htmlFor="contact-message">{t('Bericht', 'Message')} *</Label>
+                  <Label htmlFor="contact-service" className="text-sm font-semibold text-foreground">
+                    {t('Service interesse', 'Service Interest')} *
+                  </Label>
+                  <select 
+                    id="contact-service"
+                    name="service_interest"
+                    required
+                    className="w-full px-3 py-3 border-2 border-input bg-background rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus:border-primary transition-colors mt-2"
+                  >
+                    <option value="">{t('Selecteer een service', 'Select a service')}</option>
+                    <option value="sourcing">{t('Sourcing - Vind de juiste fabrikant', 'Sourcing - Find the right manufacturer')}</option>
+                    <option value="logistics">{t('Logistiek - Transport vanuit China', 'Logistics - Shipping from China')}</option>
+                    <option value="both">{t('Beide - Sourcing en Logistiek', 'Both - Sourcing and Logistics')}</option>
+                    <option value="consultation">{t('Gratis consultatie', 'Free consultation')}</option>
+                  </select>
+                </div>
+
+                <div>
+                  <Label htmlFor="contact-message" className="text-sm font-semibold text-foreground">
+                    {t('Bericht', 'Message')} *
+                  </Label>
                   <Textarea
                     id="contact-message"
                     name="message"
                     required
                     rows={5}
-                    placeholder={t('Uw bericht...', 'Your message...')}
+                    placeholder={t('Vertel ons over jouw project en behoeften...', 'Tell us about your project and needs...')}
+                    className="border-2 focus:border-primary transition-colors resize-none mt-2"
                   />
                 </div>
-                <div className="text-sm text-muted-foreground">
-                  <p>
+
+                {/* Privacy Notice */}
+                <div className="bg-muted/50 rounded-lg p-4 border border-border/50">
+                  <p className="text-xs text-muted-foreground leading-relaxed">
                     {t(
                       'Door dit formulier in te dienen, gaat u akkoord met onze ',
                       'By submitting this form, you agree to our '
                     )}
-                    <a href="/terms-conditions" className="text-primary hover:underline">
+                    <a href="/terms-conditions" className="text-primary hover:underline font-medium">
                       {t('Algemene Voorwaarden', 'Terms & Conditions')}
                     </a>
                     {t(' en ', ' and ')}
-                    <a href="/privacy-policy" className="text-primary hover:underline">
+                    <a href="/privacy-policy" className="text-primary hover:underline font-medium">
                       {t('Privacybeleid', 'Privacy Policy')}
                     </a>
                     .
                   </p>
                 </div>
-                <Button type="submit" size="lg" className="w-full">
+
+                {/* Submit Button */}
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+                >
                   {t('Verstuur bericht', 'Send message')}
                 </Button>
               </form>
@@ -203,7 +253,7 @@ const Contact = () => {
 
             {/* Contact Info */}
             <div className="space-y-6">
-              <Card className="p-6">
+              <Card className="p-5">
                 <div className="flex items-start gap-4">
                   <Mail className="h-6 w-6 text-primary mt-1" />
                   <div>
@@ -215,19 +265,8 @@ const Contact = () => {
                 </div>
               </Card>
 
-              <Card className="p-6">
-                <div className="flex items-start gap-4">
-                  <Phone className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold mb-1">📞 {t('Telefoon', 'Phone')}</h3>
-                    <a href="tel:+31612345678" className="text-muted-foreground hover:text-primary transition-colors">
-                      +31 (0)6 1234 5678
-                    </a>
-                  </div>
-                </div>
-              </Card>
 
-              <Card className="p-6">
+              <Card className="p-5">
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-primary mt-1" />
                   <div>
