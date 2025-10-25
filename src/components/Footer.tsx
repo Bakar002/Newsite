@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Mail, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import storeifyWhiteLogo from '@/assets/logo/Storeify_white.png';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -17,13 +18,26 @@ const Footer = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Convert FormData to object
+    const data = {
+      email: formData.get('email') as string,
+    };
+
     try {
-      const response = await fetch('https://formsubmit.co/Contact@storeify.co', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '123f4812-9e49-40a8-8141-c9e82c24006d',
+          subject: 'Newsletter Subscription Request',
+          from_name: 'Newsletter Subscriber',
+          form_type: 'newsletter',
+          ...data
+        }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (result.success) {
         toast.success(
           t(
             '🎉 Bedankt voor uw aanmelding!',
@@ -62,18 +76,16 @@ const Footer = () => {
 
   return (
     <footer className="bg-[hsl(var(--night-gray))] text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Storify */}
           <div>
-            <div className="mb-6">
-              <div className="bg-white p-6 rounded-2xl shadow-lg inline-block">
-                <img 
-                  src="/storifylogo.png" 
-                  alt="Storify Logo" 
-                  className="h-32 w-auto"
-                />
-              </div>
+            <div className="mb-4">
+              <img 
+                src={storeifyWhiteLogo} 
+                alt="Storify Logo" 
+                className="h-24 w-auto"
+              />
             </div>
             <p className="text-gray-300 leading-relaxed">
               {t(
@@ -85,7 +97,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">
+            <h4 className="text-lg font-semibold mb-3">
               {t('Snelle links', 'Quick links')}
             </h4>
             <ul className="space-y-2">
@@ -133,10 +145,10 @@ const Footer = () => {
 
           {/* Contact & Newsletter */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">
+            <h4 className="text-lg font-semibold mb-3">
               {t('Contact', 'Contact')}
             </h4>
-            <ul className="space-y-3 mb-6">
+            <ul className="space-y-2 mb-4">
               <li className="flex items-center gap-2 text-gray-300">
                 <Mail className="h-4 w-4 text-primary" />
                 <span className="text-sm">Contact@storeify.co</span>
@@ -149,7 +161,7 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div>
-              <p className="text-sm text-gray-300 mb-3">
+              <p className="text-sm text-gray-300 mb-2">
                 {t(
                   'Blijf op de hoogte met onze nieuwsbrief',
                   'Stay informed with our newsletter'
@@ -159,11 +171,6 @@ const Footer = () => {
                 onSubmit={handleNewsletterSubmit}
                 className="flex gap-2"
               >
-                {/* Hidden fields for FormSubmit */}
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="Newsletter Subscription Request" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="form_type" value="newsletter" />
                 
                 <Input
                   name="email"
@@ -196,7 +203,7 @@ const Footer = () => {
               </p>
               
               {/* Company Information */}
-              <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="mt-3 pt-3 border-t border-white/10">
                 <p className="text-xs text-gray-400">
                   {t(
                     'KvK: 83929991  •  BTW: NL003892322B46',
@@ -209,7 +216,7 @@ const Footer = () => {
         </div>
 
         {/* Legal Links */}
-        <div className="border-t border-white/10 mt-12 pt-8">
+        <div className="border-t border-white/10 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-wrap gap-6 text-sm">
               <Link to="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors">

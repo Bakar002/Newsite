@@ -27,13 +27,29 @@ const Contact = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Convert FormData to object
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      company: formData.get('company') as string,
+      service_interest: formData.get('service_interest') as string,
+      message: formData.get('message') as string,
+    };
+
     try {
-      const response = await fetch('https://formsubmit.co/Contact@storeify.co', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '123f4812-9e49-40a8-8141-c9e82c24006d',
+          subject: 'New Contact Form Submission - Contact Page',
+          from_name: data.name,
+          ...data
+        }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (result.success) {
         toast.success(
           t(
             '🎉 Bedankt voor uw bericht! We nemen binnen 24 uur contact met u op.',
@@ -195,10 +211,6 @@ const Contact = () => {
                 onSubmit={handleFormSubmit}
                 className="p-6 space-y-5"
               >
-                {/* Hidden fields for FormSubmit */}
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="New Contact Form Submission - Contact Page" />
-                <input type="hidden" name="_template" value="table" />
                 
                 {/* Form Fields Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -300,7 +312,7 @@ const Contact = () => {
                 >
                   {isSubmitting 
                     ? t('Bezig met versturen...', 'Sending...') 
-                    : t('Verstuur bericht', 'Send message')
+                    : t('Offerte aanvragen', 'Get your quote')
                   }
                 </Button>
               </form>

@@ -14,12 +14,12 @@ import {
   ShoppingCart, Globe, Award, MapPin, Mail, Clock, AlertCircle, HelpCircle, 
   AlertTriangle, Handshake, ShieldCheck, Receipt, Star
 } from 'lucide-react';
-import heroWarehouse from '@/assets/hero-warehouse-new.jpg';
-import factorySourcing from '@/assets/factory-sourcing-iso.png';
-import negotiation from '@/assets/negotiation-iso.png';
-import qualityControl from '@/assets/quality-control-iso.png';
-import transportImg from '@/assets/transport-logistics-iso.png';
-import officeTeam from '@/assets/office-team-iso.png';
+import heroWarehouse from '@/assets/content/1_.jpeg';
+import factorySourcing from '@/assets/content/2_.jpeg';
+import negotiation from '@/assets/content/3_.jpeg';
+import qualityControl from '@/assets/content/4_.jpeg';
+import transportImg from '@/assets/content/5_.jpeg';
+import officeTeam from '@/assets/content/6_.jpeg';
 
 const Index = () => {
   const { t } = useLanguage();
@@ -39,13 +39,29 @@ const Index = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Convert FormData to object
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      company: formData.get('company') as string,
+      service_interest: formData.get('service_interest') as string,
+      message: formData.get('message') as string,
+    };
+
     try {
-      const response = await fetch('https://formsubmit.co/Contact@storeify.co', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '123f4812-9e49-40a8-8141-c9e82c24006d',
+          subject: 'New Contact Form Submission - Homepage',
+          from_name: data.name,
+          ...data
+        }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (result.success) {
         toast.success(
           t(
             '🎉 Bedankt voor uw bericht! We nemen binnen 24 uur contact met u op.',
@@ -473,21 +489,21 @@ const Index = () => {
                           <Plane className="h-8 w-8 text-primary" />
                           <span className="font-semibold">{t('Luchtvracht', 'Air freight')}</span>
                         </div>
-                        <span className="text-primary font-bold">3-14{t('dagen', 'days')}</span>
+                        <span className="text-primary font-bold text-sm">3-14{t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
                       </div>
                       <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
                         <div className="flex items-center gap-3">
                           <Ship className="h-8 w-8 text-primary" />
                           <span className="font-semibold">{t('Zeevracht', 'Sea freight')}</span>
                         </div>
-                        <span className="text-primary font-bold">20-55 {t('dagen', 'days')}</span>
+                        <span className="text-primary font-bold text-sm">20-55 {t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
                       </div>
                       <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
                         <div className="flex items-center gap-3">
                           <Train className="h-8 w-8 text-primary" />
                           <span className="font-semibold">{t('Treintransport', 'Rail freight')}</span>
                         </div>
-                        <span className="text-primary font-bold">20-40 {t('dagen', 'days')}</span>
+                        <span className="text-primary font-bold text-sm">20-40 {t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
                       </div>
                     </div>
                     
@@ -553,11 +569,19 @@ const Index = () => {
       </section>
 
       {/* USP Section */}
-      <section className="py-20 bg-accent/50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%), 
+                             radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 0%, transparent 50%)`,
+          }}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight text-white drop-shadow-lg">
                 {t('Waarom kiezen voor ons', 'Why choose us')}
               </h2>
             </div>
@@ -566,12 +590,12 @@ const Index = () => {
               {usps.map((usp, index) => {
                 const Icon = usp.Icon;
                 return (
-                  <Card key={index} className="p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-card border-l-4 border-l-primary h-full flex flex-col">
+                  <Card key={index} className="p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white/10 backdrop-blur-sm border border-white/20 h-full flex flex-col">
                     <div className="flex-grow flex flex-col text-center">
-                      <div className="h-20 w-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                        <Icon className="h-10 w-10 text-primary" />
+                      <div className="h-20 w-20 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
+                        <Icon className="h-10 w-10 text-white" />
                       </div>
-                      <h3 className="text-lg font-bold leading-tight flex-grow flex items-center justify-center">{t(usp.textNl, usp.textEn)}</h3>
+                      <h3 className="text-lg font-bold leading-tight flex-grow flex items-center justify-center text-white">{t(usp.textNl, usp.textEn)}</h3>
                     </div>
                   </Card>
                 );
@@ -583,14 +607,25 @@ const Index = () => {
 
 
       {/* Orange Services Section */}
-      <section className="py-12 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-white text-gray-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(0,0,0,0.1) 0%, transparent 50%), 
+                             radial-gradient(circle at 75% 75%, rgba(0,0,0,0.05) 0%, transparent 50%)`,
+          }}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
+            <div className="text-center mb-12">
+              <div className="inline-block mb-4">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight text-gray-900">
                 {t('Onze kernexpertise', 'Our core expertise')}
               </h2>
-              <p className="text-base lg:text-lg opacity-90 max-w-3xl mx-auto">
+                <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+              </div>
+              <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
                 {t(
                   'Van sourcing tot levering - alles onder één dak',
                   'From sourcing to delivery - all under one roof'
@@ -604,19 +639,37 @@ const Index = () => {
                 return (
                   <div key={index} className="group h-full">
                     <div className="h-full text-center flex flex-col">
-                      <div className="relative w-full max-w-[220px] mx-auto aspect-square overflow-hidden rounded-2xl bg-white/5 p-4 flex items-center justify-center flex-shrink-0 mb-6">
+                      {/* Enhanced Image Container with Glass Morphism */}
+                      <div className="relative w-full max-w-[220px] mx-auto aspect-square overflow-hidden rounded-3xl mb-6 group-hover:scale-105 transition-all duration-500">
+                        {/* Background Gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-3xl"></div>
+                        
+                        {/* Glass Morphism Overlay */}
+                        <div className="absolute inset-0 bg-primary/5 backdrop-blur-sm rounded-3xl border border-primary/20"></div>
+                        
+                        {/* Inner Glow Effect */}
+                        <div className="absolute inset-2 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        {/* Image Container */}
+                        <div className="relative w-full h-full p-6 flex items-center justify-center">
                         <img 
                           src={service.image} 
                           alt={t(service.titleNl, service.titleEn)}
-                          className="max-w-full max-h-full object-contain transform group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl"
+                            className="max-w-full max-h-full object-contain transform group-hover:scale-110 transition-transform duration-500 filter drop-shadow-2xl"
+                            style={{
+                              filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.3)) brightness(1.1) contrast(1.1)'
+                            }}
                         />
                       </div>
+                      </div>
+                      
+                      {/* Enhanced Content */}
                       <div className="flex-grow flex flex-col">
-                        <div className="h-14 w-14 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-                          <Icon className="h-7 w-7" />
+                        <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 border border-primary/20 shadow-lg group-hover:scale-110 transition-all duration-300">
+                          <Icon className="h-8 w-8 text-primary" />
                         </div>
-                        <h3 className="text-lg font-bold mb-3">{t(service.titleNl, service.titleEn)}</h3>
-                        <p className="text-primary-foreground/90 leading-relaxed px-2 flex-grow flex items-center justify-center text-sm">
+                        <h3 className="text-xl font-bold mb-3 text-gray-900">{t(service.titleNl, service.titleEn)}</h3>
+                        <p className="text-gray-600 leading-relaxed px-2 flex-grow flex items-center justify-center text-sm">
                           {t(service.descNl, service.descEn)}
                         </p>
                       </div>
@@ -857,7 +910,7 @@ const Index = () => {
                   <Plane className="h-10 w-10 text-secondary" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('Luchtvracht', 'Air Freight')}</h3>
-                <div className="text-3xl font-bold text-primary mb-4">3-14 {t('dagen', 'days')}</div>
+                <div className="text-xl font-bold text-primary mb-4">3-14 {t('dagen', 'days')} <span className="text-sm">{t('(10% service fee)', '(10% service fee)')}</span></div>
                 <p className="text-muted-foreground flex-grow">{t('Snelste optie voor urgente zendingen', 'Fastest option for urgent shipments')}</p>
               </Card>
 
@@ -866,7 +919,7 @@ const Index = () => {
                   <Ship className="h-10 w-10 text-secondary" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('Zeevracht', 'Sea Freight')}</h3>
-                <div className="text-3xl font-bold text-primary mb-4">20-55 {t('dagen', 'days')}</div>
+                <div className="text-xl font-bold text-primary mb-4">20-55 {t('dagen', 'days')} <span className="text-sm">{t('(10% service fee)', '(10% service fee)')}</span></div>
                 <p className="text-muted-foreground flex-grow">{t('Meest economisch voor grote volumes', 'Most economical for large volumes')}</p>
               </Card>
 
@@ -875,7 +928,7 @@ const Index = () => {
                   <Train className="h-10 w-10 text-secondary" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('Treintransport', 'Train Transport')}</h3>
-                <div className="text-3xl font-bold text-primary mb-4">20-40 {t('dagen', 'days')}</div>
+                <div className="text-xl font-bold text-primary mb-4">20-40 {t('dagen', 'days')} <span className="text-sm">{t('(10% service fee)', '(10% service fee)')}</span></div>
                 <p className="text-muted-foreground flex-grow">{t('Balans tussen snelheid en kosten', 'Balance between speed and cost')}</p>
               </Card>
             </div>
@@ -931,6 +984,25 @@ const Index = () => {
                     </div>
                     </div>
                   </div>
+
+            {/* Service Fee Information */}
+            <div className="mb-12">
+              <div className="max-w-4xl mx-auto">
+                <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-2 border-primary/20">
+                  <div className="text-center">
+                    <h4 className="text-xl font-bold mb-4 text-primary">
+                      {t('Onze service fee', 'Our service fee')}
+                    </h4>
+                    <p className="text-lg text-muted-foreground">
+                      {t(
+                        'Onze service fee bedraagt 10% van de totale verzendkosten',
+                        'Our service fee is 10% of the total shipping cost'
+                      )}
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -1195,14 +1267,10 @@ const Index = () => {
                   onSubmit={handleFormSubmit}
                   className="p-6 space-y-5 flex-grow flex flex-col"
                 >
-                  {/* Hidden fields for FormSubmit */}
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_subject" value="New Contact Form Submission - Homepage" />
-                  <input type="hidden" name="_template" value="table" />
                   
                   {/* Form Fields Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
+                  <div>
                       <label htmlFor="homepage-name" className="block text-sm font-semibold mb-2 text-foreground">
                         {t('Naam', 'Name')} *
                       </label>
@@ -1213,8 +1281,8 @@ const Index = () => {
                         required 
                         className="border-2 focus:border-primary transition-colors"
                       />
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                       <label htmlFor="homepage-email" className="block text-sm font-semibold mb-2 text-foreground">
                         {t('E-mail', 'Email')} *
                       </label>
@@ -1226,7 +1294,7 @@ const Index = () => {
                         required 
                         className="border-2 focus:border-primary transition-colors"
                       />
-                    </div>
+                  </div>
                   </div>
 
                   <div>
@@ -1300,7 +1368,7 @@ const Index = () => {
                   >
                     {isSubmitting 
                       ? t('Bezig met versturen...', 'Sending...') 
-                      : t('Gratis consultatie plannen', 'Free consultation')
+                      : t('Offerte aanvragen', 'Get your quote')
                     }
                   </Button>
                 </form>
@@ -1316,18 +1384,18 @@ const Index = () => {
                       <div className="flex items-center gap-4">
                         <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <Mail className="h-7 w-7 text-primary" />
-                        </div>
+                    </div>
                         <div className="flex-grow">
                           <h3 className="font-bold text-lg mb-1 text-foreground">{t('E-mail', 'Email')}</h3>
                           <p className="text-muted-foreground font-medium">Contact@storeify.co</p>
                           <p className="text-xs text-muted-foreground mt-1">{t('Reactie binnen 24 uur', 'Response within 24 hours')}</p>
-                        </div>
+                    </div>
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
-                        </div>
-                      </div>
+                  </div>
                     </div>
-                  </Card>
+                  </div>
+                </Card>
 
                   {/* Location Card */}
                   <Card className="group relative overflow-hidden border-2 border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-background to-primary/5">
@@ -1335,7 +1403,7 @@ const Index = () => {
                       <div className="flex items-center gap-4">
                         <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <MapPin className="h-7 w-7 text-primary" />
-                        </div>
+                    </div>
                         <div className="flex-grow">
                           <h3 className="font-bold text-lg mb-1 text-foreground">{t('Kantoren', 'Offices')}</h3>
                           <p className="text-muted-foreground font-medium">{t('Nederland & China', 'Netherlands & China')}</p>
@@ -1344,9 +1412,9 @@ const Index = () => {
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
                         </div>
-                      </div>
                     </div>
-                  </Card>
+                  </div>
+                </Card>
                 </div>
 
                 {/* CTA Card */}
@@ -1364,16 +1432,16 @@ const Index = () => {
                           <Star className="h-6 w-6 text-primary-foreground" />
                         </div>
                         <h3 className="text-2xl font-bold">
-                          {t('All-in offerte aanvragen', 'Get all-in quote')}
-                        </h3>
+                    {t('All-in offerte aanvragen', 'Get all-in quote')}
+                  </h3>
                       </div>
                       
                       <p className="text-primary-foreground/90 text-base leading-relaxed mb-6">
-                        {t(
+                    {t(
                           'Ontvang een gedetailleerde offerte inclusief sourcing, logistiek en alle kosten. Geen verborgen kosten, volledig transparant.',
                           'Get a detailed quote including sourcing, logistics and all costs. No hidden fees, fully transparent.'
-                        )}
-                      </p>
+                    )}
+                  </p>
 
                       <div className="space-y-3 mb-6">
                         <div className="flex items-center gap-3 text-sm">
@@ -1397,8 +1465,8 @@ const Index = () => {
                       className="w-full bg-white text-primary hover:bg-white/90 font-semibold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
                       onClick={() => scrollToSection('#contact')}
                     >
-                      {t('All-in offerte aanvragen', 'Get all-in quote')}
-                    </Button>
+                    {t('All-in offerte aanvragen', 'Get all-in quote')}
+                  </Button>
                   </div>
                 </Card>
               </div>
