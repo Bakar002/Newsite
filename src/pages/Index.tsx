@@ -297,7 +297,7 @@ const Index = () => {
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/50">
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-1">5+</div>
+                  <div className="text-3xl font-bold text-primary mb-1">10+</div>
                   <p className="text-sm text-muted-foreground">{t('Jaar ervaring', 'Years experience')}</p>
                 </div>
                 <div>
@@ -349,14 +349,14 @@ const Index = () => {
       </section>
 
       {/* Services Section - Comprehensive */}
-      <section id="services" className="py-20 bg-muted/30">
+      <section id="services" className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl lg:text-3xl font-bold mb-3 tracking-tight">
                 {t('Onze diensten', 'Our Services')}
               </h2>
-              <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base text-muted-foreground max-w-2xl mx-auto">
                 {t(
                   'Alles wat je nodig hebt voor succesvol importeren vanuit China',
                   'Everything you need for successful importing from China'
@@ -364,201 +364,128 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {/* Sourcing Service Card */}
-              <Card className="p-6 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+              <Card className="p-4 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="flex-grow flex flex-col justify-between">
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {/* Header */}
-                  <div className="border-b border-border pb-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Package className="h-8 w-8 text-primary" />
+                  <div className="border-b border-border pb-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Package className="h-6 w-6 text-primary" />
                       </div>
-                      <h3 className="text-3xl font-bold">{t('Sourcing', 'Sourcing')}</h3>
+                      <h3 className="text-2xl font-bold">{t('Sourcing', 'Sourcing')}</h3>
                     </div>
-                    <p className="text-xl text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       {t('Vind de juiste fabrikant', 'Find the right manufacturer')}
                     </p>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-lg leading-relaxed">
-                    {t(
-                      'Wij zoeken, selecteren en onderhandelen direct met fabrikanten in China. Zo krijg jij betrouwbare productie, de beste prijs en duidelijke afspraken.',
-                      'We search, shortlist, and negotiate directly with factories in China. This ensures reliable production, the best pricing, and clear terms.'
-                    )}
-                  </p>
+                    {/* Description */}
+                    <p className="text-base leading-relaxed">
+                      {t(
+                        'Wij zoeken, selecteren en onderhandelen direct met fabrikanten in China.',
+                        'We search, select and negotiate directly with manufacturers in China.'
+                      )}
+                    </p>
 
-                  {/* Challenges */}
-                  <div>
-                    <h4 className="text-xl font-bold mb-4">{t('Uitdagingen:', 'Challenges:')}</h4>
-                    <ul className="space-y-2">
-                      {[
-                        { nl: 'Urenlang zoeken zonder resultaat', en: 'Hours of searching without results' },
-                        { nl: 'Te hoge prijzen door beperkte onderhandelingspositie', en: 'Higher prices due to limited negotiation power' },
-                        { nl: 'Onzekerheid over kwaliteit en levertijd', en: 'Uncertainty about quality and lead times' },
-                        { nl: "Onduidelijke MOQ's en totale kosten", en: 'Limited visibility on MOQs and total costs' },
-                        { nl: 'Risico op onbetrouwbare leveranciers', en: 'Risk of unreliable suppliers' },
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <XCircle className="h-5 w-5 text-destructive mt-0.5 flex-shrink-0" />
-                          <span className="text-muted-foreground">{t(item.nl, item.en)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Why Us */}
-                  <div>
-                    <h4 className="text-xl font-bold mb-4">{t('Waarom wij:', 'Why us:')}</h4>
-                    <ul className="space-y-3">
-                      {[
-                        { nl: 'Gespecialiseerd in sourcing vanuit China', en: 'Specialized in sourcing from China' },
-                        { nl: 'Sterk in onderhandelingen voor scherpe prijzen', en: 'Professional negotiations for competitive prices' },
-                        { nl: 'Leveranciers gecontroleerd op kwaliteit', en: 'Suppliers verified for quality' },
-                        { nl: 'Transparante all-in offertes', en: 'Transparent all-in quotes' },
-                        { nl: 'Lokale teams in China & Nederland', en: 'Local teams in China & Netherlands' },
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="font-medium">{t(item.nl, item.en)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Process */}
-                  <div>
-                    <h4 className="text-xl font-bold mb-4">{t('Hoe wij werken:', 'How we work:')}</h4>
-                    <div className="space-y-3">
-                      {[
-                        { step: '1', nl: 'Aanvraag - Jij deelt productdetails en volumes', en: 'Request - You share product details and volumes' },
-                        { step: '2', nl: 'Onderzoek & selectie - Wij zoeken en onderhandelen', en: 'Research & selection - We search and negotiate' },
-                        { step: '3', nl: 'Resultaten - Je ontvangt all-in prijzen en MOQs', en: 'Results - You receive all-in prices and MOQs' },
-                        { step: '4', nl: 'Beslissing - Kies zelfstandig of via ons verder', en: 'Decision - Continue independently or through us' },
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold flex-shrink-0">
-                            {item.step}
-                          </div>
-                          <p className="text-muted-foreground pt-1">{t(item.nl, item.en)}</p>
-                        </div>
-                      ))}
+                    {/* Key Benefits */}
+                    <div>
+                      <h4 className="text-lg font-bold mb-3">{t('Voordelen:', 'Benefits:')}</h4>
+                      <ul className="space-y-2">
+                        {[
+                          { nl: 'Directe fabrikant contact', en: 'Direct manufacturer contact' },
+                          { nl: 'Beste prijzen door onderhandeling', en: 'Best prices through negotiation' },
+                          { nl: 'Kwaliteitscontrole en verificatie', en: 'Quality control and verification' },
+                        ].map((item, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
+                            <span className="text-sm">{t(item.nl, item.en)}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
                       </div>
 
-                  <Button size="lg" className="w-full mt-8" onClick={() => scrollToSection('#contact')}>
+                  <Button size="lg" className="w-full mt-6" onClick={() => scrollToSection('#contact')}>
                     {t('Start sourcing', 'Start sourcing')}
                   </Button>
                 </div>
               </Card>
 
               {/* Logistics Service Card */}
-              <Card className="p-6 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+              <Card className="p-4 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="flex-grow flex flex-col justify-between">
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {/* Header */}
-                  <div className="border-b border-border pb-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Truck className="h-8 w-8 text-primary" />
+                  <div className="border-b border-border pb-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Truck className="h-6 w-6 text-primary" />
                       </div>
-                      <h3 className="text-3xl font-bold">{t('Logistiek', 'Logistics')}</h3>
+                      <h3 className="text-2xl font-bold">{t('Logistiek', 'Logistics')}</h3>
                     </div>
-                    <p className="text-xl text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       {t('Wereldwijd transport vanuit China', 'Worldwide shipping from China')}
                     </p>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-lg leading-relaxed">
-                    {t(
-                      'Wij regelen jouw transport volledig vanuit China – snel, veilig en voordelig.',
-                      'We manage your transport fully from China – fast, safe, and cost-effective.'
-                    )}
-                  </p>
+                    {/* Description */}
+                    <p className="text-base leading-relaxed">
+                      {t(
+                        'Wij regelen jouw transport volledig vanuit China – snel, veilig en voordelig.',
+                        'We manage your transport fully from China – fast, safe, and cost-effective.'
+                      )}
+                    </p>
 
-                  {/* Transport Options */}
-                  <div>
-                    <h4 className="text-xl font-bold mb-4">{t('Transportopties:', 'Transport options:')}</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <Plane className="h-8 w-8 text-primary" />
-                          <span className="font-semibold">{t('Luchtvracht', 'Air freight')}</span>
-                        </div>
-                        <span className="text-primary font-bold text-sm">3-14{t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
-                      </div>
-                      <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <Ship className="h-8 w-8 text-primary" />
-                          <span className="font-semibold">{t('Zeevracht', 'Sea freight')}</span>
-                        </div>
-                        <span className="text-primary font-bold text-sm">20-55 {t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
-                      </div>
-                      <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <Train className="h-8 w-8 text-primary" />
-                          <span className="font-semibold">{t('Treintransport', 'Rail freight')}</span>
-                        </div>
-                        <span className="text-primary font-bold text-sm">20-40 {t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
-                      </div>
-                    </div>
-                    
-                    {/* Disclaimer */}
-                    <div className="mt-4 p-3 bg-muted/30 rounded-lg border-l-4 border-l-primary/20">
-                      <p className="text-sm text-muted-foreground italic">
-                        {t(
-                          'Dit zijn gemiddelde doorlooptijden; de werkelijke transportduur kan korter of langer zijn afhankelijk van omstandigheden.',
-                          'These are average lead times; actual shipping duration may be shorter or longer depending on circumstances.'
-                        )}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Why Us */}
-                  <div>
-                    <h4 className="text-xl font-bold mb-4">{t('Waarom wij:', 'Why us:')}</h4>
-                    <ul className="space-y-3">
-                      {[
-                        { nl: 'Gespecialiseerd in import & transport vanuit China', en: 'Specialized in importing & shipping from China' },
-                        { nl: 'Concurrerende all-in tarieven inclusief handling fee', en: 'Competitive all-in pricing including handling fee' },
-                        { nl: 'Douaneafhandeling volledig geregeld', en: 'Full customs clearance handled' },
-                        { nl: 'Real-time tracking en heldere communicatie', en: 'Real-time tracking and clear communication' },
-                        { nl: 'Levering rechtstreeks naar jouw deur', en: 'Direct delivery to your door' },
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="font-medium">{t(item.nl, item.en)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Process */}
-                  <div>
-                    <h4 className="text-xl font-bold mb-4">{t('Hoe wij werken:', 'How we work:')}</h4>
-                    <div className="space-y-3">
-                      {[
-                        { step: '1', nl: 'Offerte - Wij berekenen de beste oplossing', en: 'Quote - We calculate the best solution' },
-                        { step: '2', nl: 'Ophalen - Bij leverancier of naar ons magazijn', en: 'Pickup - From supplier or to our warehouse' },
-                        { step: '3', nl: 'Transport - Veilige verzending met tracking', en: 'Transport - Secure shipping with tracking' },
-                        { step: '4', nl: 'Levering - Douaneafhandeling en aflevering', en: 'Delivery - Customs clearance and final delivery' },
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold flex-shrink-0">
-                            {item.step}
+                    {/* Transport Options */}
+                    <div>
+                      <h4 className="text-lg font-bold mb-3">{t('Transportopties:', 'Transport options:')}</h4>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <Plane className="h-5 w-5 text-primary" />
+                            <span className="font-medium text-sm">{t('Luchtvracht', 'Air freight')}</span>
                           </div>
-                          <p className="text-muted-foreground pt-1">{t(item.nl, item.en)}</p>
+                          <span className="text-primary font-bold text-sm">3-14{t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
                         </div>
-                      ))}
+                        <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <Ship className="h-5 w-5 text-primary" />
+                            <span className="font-medium text-sm">{t('Zeevracht', 'Sea freight')}</span>
+                          </div>
+                          <span className="text-primary font-bold text-sm">20-55 {t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
+                        </div>
+                        <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <Train className="h-5 w-5 text-primary" />
+                            <span className="font-medium text-sm">{t('Treintransport', 'Rail freight')}</span>
+                          </div>
+                          <span className="text-primary font-bold text-sm">20-40 {t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Key Benefits */}
+                    <div>
+                      <h4 className="text-lg font-bold mb-3">{t('Voordelen:', 'Benefits:')}</h4>
+                      <ul className="space-y-2">
+                        {[
+                          { nl: 'All-in tarieven inclusief handling', en: 'All-in rates including handling' },
+                          { nl: 'Douaneafhandeling volledig geregeld', en: 'Full customs clearance handled' },
+                          { nl: 'Real-time tracking en communicatie', en: 'Real-time tracking and communication' },
+                        ].map((item, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
+                            <span className="text-sm">{t(item.nl, item.en)}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                  </div>
 
-                  <Button size="lg" className="w-full mt-8" onClick={() => scrollToSection('#contact')}>
+                  <Button size="lg" className="w-full mt-6" onClick={() => scrollToSection('#contact')}>
                     {t('Ontdek logistiek', 'Discover logistics')}
                   </Button>
                 </div>
@@ -986,7 +913,7 @@ const Index = () => {
                   </div>
 
             {/* Service Fee Information */}
-            <div className="mb-12">
+            <div className="mb-4">
               <div className="max-w-4xl mx-auto">
                 <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-2 border-primary/20">
                   <div className="text-center">
@@ -1009,7 +936,7 @@ const Index = () => {
       </section>
 
       {/* Target Audience Section */}
-      <section id="target-audience" className="py-20 bg-accent/30">
+      <section id="target-audience" className="bg-accent/30">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10">
@@ -1024,7 +951,7 @@ const Index = () => {
                   <Rocket className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold mb-3 flex-grow flex items-center justify-center">
-                  {t('Startende ondernemers en bestaande bedrijven met een eigen merk', 'Startups & established brands')}
+                  {t('Startups & gevestigde merken', 'Startups & established brands')}
                 </h3>
               </Card>
 
@@ -1042,7 +969,7 @@ const Index = () => {
                   <Store className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold mb-3 flex-grow flex items-center justify-center">
-                  {t('Retailers en groothandels', 'Retailers and wholesalers')}
+                  {t('Retailers & groothandels', 'Retailers and wholesalers')}
                 </h3>
               </Card>
 
@@ -1051,7 +978,7 @@ const Index = () => {
                   <Coffee className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold mb-3 flex-grow flex items-center justify-center">
-                  {t('Horeca en hotels (non-food)', 'Hospitality & hotels (non-food)')}
+                  {t('Horeca & hotels (non-food)', 'Hospitality & hotels (non-food)')}
                 </h3>
               </Card>
             </div>
@@ -1156,7 +1083,7 @@ const Index = () => {
               <h3 className="text-3xl font-bold mb-8 text-center">{t('Onze resultaten:', 'Our results:')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <Card className="p-8 text-center hover:shadow-xl transition-all duration-300">
-                  <div className="text-5xl font-bold text-primary mb-3">5+</div>
+                  <div className="text-5xl font-bold text-primary mb-3">10+</div>
                   <p className="text-xl font-semibold">{t('jaar ervaring', 'years of experience')}</p>
                 </Card>
 
@@ -1212,7 +1139,7 @@ const Index = () => {
 
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20">
+      <section id="faq" className="">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">

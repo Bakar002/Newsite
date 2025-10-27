@@ -54,7 +54,7 @@ const About = () => {
   ];
 
   const stats = [
-    { value: '5+', labelNl: 'jaar ervaring', labelEn: 'years of experience' },
+    { value: '10+', labelNl: 'jaar ervaring', labelEn: 'years of experience' },
     { value: '100+', labelNl: 'tevreden klanten', labelEn: 'satisfied clients' },
     { value: '10+', labelNl: 'landen wereldwijd', labelEn: 'countries worldwide' },
   ];

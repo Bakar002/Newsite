@@ -5,8 +5,8 @@ const StatsSection = () => {
 
   const stats = [
     {
-      numberNl: '5+',
-      numberEn: '5+',
+      numberNl: '10+',
+      numberEn: '10+',
       labelNl: 'jaar ervaring',
       labelEn: 'years of experience',
     },
