@@ -15,10 +15,10 @@ import {
   AlertTriangle, Handshake, ShieldCheck, Receipt, Star
 } from 'lucide-react';
 import heroWarehouse from '@/assets/content/1_.jpeg';
-import factorySourcing from '@/assets/content/2_.jpeg';
-import negotiation from '@/assets/content/3_.jpeg';
-import qualityControl from '@/assets/content/4_.jpeg';
-import transportImg from '@/assets/content/5_.jpeg';
+import factorySourcing from '@/assets/content/new_4.jpg';
+import negotiation from '@/assets/content/new_3.jpg';
+import qualityControl from '@/assets/content/new_2.jpg';
+import transportImg from '@/assets/content/new_1.jpg';
 import officeTeam from '@/assets/content/6_.jpeg';
 
 const Index = () => {
