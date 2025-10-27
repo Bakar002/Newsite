@@ -566,34 +566,19 @@ const Index = () => {
                 return (
                   <div key={index} className="group h-full">
                     <div className="h-full text-center flex flex-col">
-                      {/* Enhanced Image Container with Glass Morphism */}
-                      <div className="relative w-full max-w-[220px] mx-auto aspect-square overflow-hidden rounded-3xl mb-6 group-hover:scale-105 transition-all duration-500">
-                        {/* Background Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-3xl"></div>
-                        
-                        {/* Glass Morphism Overlay */}
-                        <div className="absolute inset-0 bg-primary/5 backdrop-blur-sm rounded-3xl border border-primary/20"></div>
-                        
-                        {/* Inner Glow Effect */}
-                        <div className="absolute inset-2 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        {/* Image Container */}
-                        <div className="relative w-full h-full p-6 flex items-center justify-center">
+                      {/* Clean Image Container */}
+                      <div className="w-full max-w-[200px] mx-auto aspect-square mb-6 group-hover:scale-105 transition-all duration-500">
                         <img 
                           src={service.image} 
                           alt={t(service.titleNl, service.titleEn)}
-                            className="max-w-full max-h-full object-contain transform group-hover:scale-110 transition-transform duration-500 filter drop-shadow-2xl"
-                            style={{
-                              filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.3)) brightness(1.1) contrast(1.1)'
-                            }}
+                          className="w-full h-full object-cover rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500"
                         />
-                      </div>
                       </div>
                       
                       {/* Enhanced Content */}
                       <div className="flex-grow flex flex-col">
-                        <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 border border-primary/20 shadow-lg group-hover:scale-110 transition-all duration-300">
-                          <Icon className="h-8 w-8 text-primary" />
+                        <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300">
+                          <Icon className="h-6 w-6 text-primary" />
                         </div>
                         <h3 className="text-xl font-bold mb-3 text-gray-900">{t(service.titleNl, service.titleEn)}</h3>
                         <p className="text-gray-600 leading-relaxed px-2 flex-grow flex items-center justify-center text-sm">
