@@ -183,8 +183,8 @@ const Index = () => {
     {
       questionNl: 'Wat betekent een all-in prijs?',
       questionEn: 'What does all-in pricing mean?',
-      answerNl: 'Onze offertes bevatten altijd een totaalprijs inclusief sourcing, onderhandelingen, logistiek en handling fee.',
-      answerEn: 'Our quotes always include sourcing, negotiations, logistics and handling fee in one transparent price.',
+      answerNl: 'Onze offertes zijn altijd all-in: één totaalprijs voor sourcing en logistiek, inclusief een 10% handling fee.',
+      answerEn: 'Our quotes are all-in: one total price for sourcing and logistics, including a 10% handling fee.',
     },
     {
       questionNl: 'Hoe snel ontvang ik leveranciersvoorstellen?',
@@ -207,8 +207,8 @@ const Index = () => {
     {
       questionNl: 'Hoe lang duurt transport vanuit China?',
       questionEn: 'How long does shipping from China take?',
-      answerNl: 'Afhankelijk van de methode: luchtvracht 3–12 dagen, zeevracht 20–40 dagen, trein 20–30 dagen.',
-      answerEn: 'Depending on the method: air freight 3–12 days, sea freight 20–40 days, rail 20–30 days.',
+      answerNl: 'Gemiddeld duurt luchtvracht 3–14 dagen, zeevracht 20–55 dagen en treinvervoer 20–40 dagen. Dit zijn richtlijnen; de exacte transportduur kan variëren afhankelijk van planning, route en omstandigheden.',
+      answerEn: 'On average, air freight takes 3–14 days, sea freight 20–55 days, and rail transport 20–40 days. These are typical lead times; actual delivery may vary depending on schedule, route, and conditions.',
     },
     {
       questionNl: 'Ik wil een eigen merk starten, kunnen jullie helpen?',
@@ -231,8 +231,8 @@ const Index = () => {
     {
       questionNl: 'Hoe werkt de betaling?',
       questionEn: 'How does payment work?',
-      answerNl: 'Wij werken met veilige betaalmethoden en duidelijke afspraken over termijnen.',
-      answerEn: 'We use secure payment methods and clear agreements on payment terms.',
+      answerNl: 'Wij werken met facturen; betaling verloopt via bankoverschrijving volgens de afgesproken termijnen.',
+      answerEn: 'We work with invoices; payment is made by bank transfer according to the agreed terms.',
     },
     {
       questionNl: 'Regelen jullie ook douane en importdocumenten?',
