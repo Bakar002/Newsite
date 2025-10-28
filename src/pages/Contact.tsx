@@ -50,8 +50,8 @@ const Contact = () => {
 
       const result = await response.json();
       if (result.success) {
-        toast.success(
-          t(
+    toast.success(
+      t(
             '🎉 Bedankt voor uw bericht! We nemen binnen 24 uur contact met u op.',
             '🎉 Thank you for your message! We will contact you within 24 hours.'
           ),
@@ -200,8 +200,8 @@ const Contact = () => {
               {/* Header with gradient background */}
               <div className="bg-gradient-to-r from-primary to-primary/80 p-6 text-primary-foreground">
                 <h2 className="text-2xl font-bold mb-2">
-                  {t('Stuur ons een bericht', 'Send us a message')}
-                </h2>
+                {t('Stuur ons een bericht', 'Send us a message')}
+              </h2>
                 <p className="text-primary-foreground/90 text-sm">
                   {t('Vul het formulier in en wij nemen binnen 24 uur contact met je op', 'Fill out the form and we\'ll contact you within 24 hours')}
                 </p>
@@ -214,30 +214,30 @@ const Contact = () => {
                 
                 {/* Form Fields Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
+                <div>
                     <Label htmlFor="contact-name" className="text-sm font-semibold text-foreground">
                       {t('Naam', 'Name')} *
                     </Label>
-                    <Input
+                  <Input
                       id="contact-name"
                       name="name"
-                      required
+                    required
                       placeholder={t('Uw naam', 'Your name')}
                       className="border-2 focus:border-primary transition-colors mt-2"
-                    />
-                  </div>
-                  <div>
+                  />
+                </div>
+                <div>
                     <Label htmlFor="contact-email" className="text-sm font-semibold text-foreground">
                       Email *
                     </Label>
-                    <Input
+                  <Input
                       id="contact-email"
                       name="email"
-                      type="email"
-                      required
+                    type="email"
+                    required
                       placeholder={t('uw@email.nl', 'your@email.com')}
                       className="border-2 focus:border-primary transition-colors mt-2"
-                    />
+                  />
                   </div>
                 </div>
 

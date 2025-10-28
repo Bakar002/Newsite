@@ -19,7 +19,7 @@ import factorySourcing from '@/assets/content/new_4.jpg';
 import negotiation from '@/assets/content/new_3.jpg';
 import qualityControl from '@/assets/content/new_2.jpg';
 import transportImg from '@/assets/content/new_1.jpg';
-import officeTeam from '@/assets/content/6_.jpeg';
+import officeTeam from '@/assets/content/office_image.jpg';
 
 const Index = () => {
   const { t } = useLanguage();
@@ -371,13 +371,13 @@ const Index = () => {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="h-14 w-14 rounded-xl bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Package className="h-7 w-7 text-white" />
-                    </div>
+                      </div>
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-1">{t('Sourcing', 'Sourcing')}</h3>
                       <p className="text-gray-600">{t('Vind de juiste fabrikant', 'Find the right manufacturer')}</p>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-700 mb-6 leading-relaxed">
                     {t(
                       'Wij zoeken, selecteren en onderhandelen direct met fabrikanten in China voor de beste prijzen en kwaliteit.',
@@ -390,11 +390,11 @@ const Index = () => {
                       { nl: 'Directe fabrikant contact', en: 'Direct manufacturer contact' },
                       { nl: 'Beste prijzen door onderhandeling', en: 'Best prices through negotiation' },
                       { nl: 'Kwaliteitscontrole en verificatie', en: 'Quality control and verification' },
-                    ].map((item, i) => (
+                      ].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                         <span className="text-gray-700">{t(item.nl, item.en)}</span>
-                      </div>
+                  </div>
                     ))}
                   </div>
 
@@ -406,7 +406,7 @@ const Index = () => {
                     {t('Start sourcing', 'Start sourcing')}
                   </Button>
                 </div>
-              </div>
+                  </div>
 
               {/* Logistics Service */}
               <div className="group">
@@ -415,35 +415,35 @@ const Index = () => {
                     <div className="h-14 w-14 rounded-xl bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Truck className="h-7 w-7 text-white" />
                     </div>
-                    <div>
+                  <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-1">{t('Logistiek', 'Logistics')}</h3>
                       <p className="text-gray-600">{t('Wereldwijd transport vanuit China', 'Worldwide shipping from China')}</p>
+                      </div>
                     </div>
-                  </div>
-                  
+                    
                   <p className="text-gray-700 mb-6 leading-relaxed">
-                    {t(
+                        {t(
                       'Complete transportoplossingen van China naar jouw deur met real-time tracking en douaneafhandeling.',
                       'Complete transport solutions from China to your door with real-time tracking and customs clearance.'
-                    )}
-                  </p>
+                        )}
+                      </p>
 
                   <div className="grid grid-cols-3 gap-3 mb-8">
                     <div className="text-center p-3 bg-white/50 rounded-lg">
                       <Plane className="h-6 w-6 text-primary mx-auto mb-2" />
                       <div className="text-sm font-semibold text-gray-900">3-14 {t('dagen', 'days')}</div>
                       <div className="text-xs text-gray-600">{t('Luchtvracht', 'Air freight')}</div>
-                    </div>
+                  </div>
                     <div className="text-center p-3 bg-white/50 rounded-lg">
                       <Ship className="h-6 w-6 text-primary mx-auto mb-2" />
                       <div className="text-sm font-semibold text-gray-900">20-55 {t('dagen', 'days')}</div>
                       <div className="text-xs text-gray-600">{t('Zeevracht', 'Sea freight')}</div>
-                    </div>
+                          </div>
                     <div className="text-center p-3 bg-white/50 rounded-lg">
                       <Train className="h-6 w-6 text-primary mx-auto mb-2" />
                       <div className="text-sm font-semibold text-gray-900">20-40 {t('dagen', 'days')}</div>
                       <div className="text-xs text-gray-600">{t('Trein', 'Rail')}</div>
-                    </div>
+                  </div>
                   </div>
 
                   <Button 
@@ -1336,14 +1336,6 @@ const Index = () => {
                       </div>
                     </div>
 
-                    <Button 
-                      variant="secondary" 
-                      size="lg" 
-                      className="w-full bg-white text-primary hover:bg-white/90 font-semibold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => scrollToSection('#contact')}
-                    >
-                    {t('All-in offerte aanvragen', 'Get all-in quote')}
-                  </Button>
                   </div>
                 </Card>
               </div>

@@ -6,6 +6,10 @@ import { Mail, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import storeifyWhiteLogo from '@/assets/logo/Storeify_white.png';
+import facebookIcon from '@/assets/social/facebook.png';
+import instagramIcon from '@/assets/social/instagram.png';
+import twitterIcon from '@/assets/social/twitter.png';
+import tiktokIcon from '@/assets/social/tiktok.png';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -81,11 +85,11 @@ const Footer = () => {
           {/* About Storify */}
           <div>
             <div className="mb-4">
-              <img 
+                <img 
                 src={storeifyWhiteLogo} 
-                alt="Storify Logo" 
+                  alt="Storify Logo" 
                 className="h-24 w-auto"
-              />
+                />
             </div>
             <p className="text-gray-300 leading-relaxed">
               {t(
@@ -215,9 +219,49 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Social Media */}
+        <div className="border-t border-white/10 mt-14 pt-10">
+  <div className="flex flex-col items-center gap-6">
+    <h4 className="text-sm font-medium text-gray-300 tracking-wide">
+      {t('Volg ons', 'Follow us')}
+    </h4>
+
+    <div className="flex gap-7">
+      {[
+        { href: "#", icon: facebookIcon },
+        { href: "https://www.instagram.com/storeify.co?igsh=MWNudTdhY2Q4NmN3aw%253D%253D&utm_source=qr", icon: instagramIcon },
+        { href: "#", icon: twitterIcon },
+        { href: "#", icon: tiktokIcon },
+      ].map((item, idx) => (
+        <a
+          key={idx}
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            h-12 w-12 rounded-full
+            flex items-center justify-center
+            bg-white border border-white/20
+            shadow-sm
+            transition-all duration-300 ease-out
+            hover:-translate-y-[2px] hover:shadow-lg hover:shadow-white/30
+          "
+        >
+          <img
+            src={item.icon}
+            alt="social"
+            className="h-6 w-6 opacity-90 hover:opacity-100 transition-opacity duration-300"
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+
         {/* Legal Links */}
         <div className="border-t border-white/10 mt-8 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col items-center gap-4">
             <div className="flex flex-wrap gap-6 text-sm">
               <Link to="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors">
                 {t('Privacybeleid', 'Privacy Policy')}
@@ -226,7 +270,7 @@ const Footer = () => {
                 {t('Algemene Voorwaarden', 'Terms & Conditions')}
               </Link>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm text-center">
               &copy; {new Date().getFullYear()} Storify. {t('Alle rechten voorbehouden.', 'All rights reserved.')}
             </p>
           </div>
