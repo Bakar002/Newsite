@@ -348,148 +348,113 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section - Comprehensive */}
-      <section id="services" className="py-12 bg-muted/30">
+      {/* Services Section - Professional */}
+      <section id="services" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-3 tracking-tight">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
                 {t('Onze diensten', 'Our Services')}
               </h2>
-              <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 {t(
-                  'Alles wat je nodig hebt voor succesvol importeren vanuit China',
-                  'Everything you need for successful importing from China'
+                  'Complete sourcing en logistieke oplossingen vanuit China',
+                  'Complete sourcing and logistics solutions from China'
                 )}
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {/* Sourcing Service Card */}
-              <Card className="p-4 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                <div className="flex-grow flex flex-col justify-between">
-                <div className="space-y-4">
-                  {/* Header */}
-                  <div className="border-b border-border pb-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Package className="h-6 w-6 text-primary" />
-                      </div>
-                      <h3 className="text-2xl font-bold">{t('Sourcing', 'Sourcing')}</h3>
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Sourcing Service */}
+              <div className="group">
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 h-full border border-primary/20 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="h-14 w-14 rounded-xl bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Package className="h-7 w-7 text-white" />
                     </div>
-                    <p className="text-lg text-muted-foreground">
-                      {t('Vind de juiste fabrikant', 'Find the right manufacturer')}
-                    </p>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-1">{t('Sourcing', 'Sourcing')}</h3>
+                      <p className="text-gray-600">{t('Vind de juiste fabrikant', 'Find the right manufacturer')}</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    {t(
+                      'Wij zoeken, selecteren en onderhandelen direct met fabrikanten in China voor de beste prijzen en kwaliteit.',
+                      'We search, select and negotiate directly with manufacturers in China for the best prices and quality.'
+                    )}
+                  </p>
+
+                  <div className="space-y-3 mb-8">
+                    {[
+                      { nl: 'Directe fabrikant contact', en: 'Direct manufacturer contact' },
+                      { nl: 'Beste prijzen door onderhandeling', en: 'Best prices through negotiation' },
+                      { nl: 'Kwaliteitscontrole en verificatie', en: 'Quality control and verification' },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-gray-700">{t(item.nl, item.en)}</span>
+                      </div>
+                    ))}
                   </div>
 
-                    {/* Description */}
-                    <p className="text-base leading-relaxed">
-                      {t(
-                        'Wij zoeken, selecteren en onderhandelen direct met fabrikanten in China.',
-                        'We search, select and negotiate directly with manufacturers in China.'
-                      )}
-                    </p>
-
-                    {/* Key Benefits */}
-                    <div>
-                      <h4 className="text-lg font-bold mb-3">{t('Voordelen:', 'Benefits:')}</h4>
-                      <ul className="space-y-2">
-                        {[
-                          { nl: 'Directe fabrikant contact', en: 'Direct manufacturer contact' },
-                          { nl: 'Beste prijzen door onderhandeling', en: 'Best prices through negotiation' },
-                          { nl: 'Kwaliteitscontrole en verificatie', en: 'Quality control and verification' },
-                        ].map((item, i) => (
-                          <li key={i} className="flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                            <span className="text-sm">{t(item.nl, item.en)}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                      </div>
-
-                  <Button size="lg" className="w-full mt-6" onClick={() => scrollToSection('#contact')}>
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-primary hover:bg-primary/90 text-white"
+                    onClick={() => scrollToSection('#contact')}
+                  >
                     {t('Start sourcing', 'Start sourcing')}
                   </Button>
                 </div>
-              </Card>
+              </div>
 
-              {/* Logistics Service Card */}
-              <Card className="p-4 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                <div className="flex-grow flex flex-col justify-between">
-                <div className="space-y-4">
-                  {/* Header */}
-                  <div className="border-b border-border pb-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Truck className="h-6 w-6 text-primary" />
-                      </div>
-                      <h3 className="text-2xl font-bold">{t('Logistiek', 'Logistics')}</h3>
+              {/* Logistics Service */}
+              <div className="group">
+                <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 rounded-2xl p-8 h-full border border-secondary/20 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="h-14 w-14 rounded-xl bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Truck className="h-7 w-7 text-white" />
                     </div>
-                    <p className="text-lg text-muted-foreground">
-                      {t('Wereldwijd transport vanuit China', 'Worldwide shipping from China')}
-                    </p>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-1">{t('Logistiek', 'Logistics')}</h3>
+                      <p className="text-gray-600">{t('Wereldwijd transport vanuit China', 'Worldwide shipping from China')}</p>
+                    </div>
                   </div>
+                  
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    {t(
+                      'Complete transportoplossingen van China naar jouw deur met real-time tracking en douaneafhandeling.',
+                      'Complete transport solutions from China to your door with real-time tracking and customs clearance.'
+                    )}
+                  </p>
 
-                    {/* Description */}
-                    <p className="text-base leading-relaxed">
-                      {t(
-                        'Wij regelen jouw transport volledig vanuit China – snel, veilig en voordelig.',
-                        'We manage your transport fully from China – fast, safe, and cost-effective.'
-                      )}
-                    </p>
-
-                    {/* Transport Options */}
-                    <div>
-                      <h4 className="text-lg font-bold mb-3">{t('Transportopties:', 'Transport options:')}</h4>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
-                          <div className="flex items-center gap-2">
-                            <Plane className="h-5 w-5 text-primary" />
-                            <span className="font-medium text-sm">{t('Luchtvracht', 'Air freight')}</span>
-                          </div>
-                          <span className="text-primary font-bold text-sm">3-14{t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
-                        </div>
-                        <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
-                          <div className="flex items-center gap-2">
-                            <Ship className="h-5 w-5 text-primary" />
-                            <span className="font-medium text-sm">{t('Zeevracht', 'Sea freight')}</span>
-                          </div>
-                          <span className="text-primary font-bold text-sm">20-55 {t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
-                        </div>
-                        <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
-                          <div className="flex items-center gap-2">
-                            <Train className="h-5 w-5 text-primary" />
-                            <span className="font-medium text-sm">{t('Treintransport', 'Rail freight')}</span>
-                          </div>
-                          <span className="text-primary font-bold text-sm">20-40 {t('dagen', 'days')} <span className="text-xs">{t('(10% service fee)', '(10% service fee)')}</span></span>
-                        </div>
-                      </div>
+                  <div className="grid grid-cols-3 gap-3 mb-8">
+                    <div className="text-center p-3 bg-white/50 rounded-lg">
+                      <Plane className="h-6 w-6 text-primary mx-auto mb-2" />
+                      <div className="text-sm font-semibold text-gray-900">3-14 {t('dagen', 'days')}</div>
+                      <div className="text-xs text-gray-600">{t('Luchtvracht', 'Air freight')}</div>
                     </div>
-
-                    {/* Key Benefits */}
-                    <div>
-                      <h4 className="text-lg font-bold mb-3">{t('Voordelen:', 'Benefits:')}</h4>
-                      <ul className="space-y-2">
-                        {[
-                          { nl: 'All-in tarieven inclusief handling', en: 'All-in rates including handling' },
-                          { nl: 'Douaneafhandeling volledig geregeld', en: 'Full customs clearance handled' },
-                          { nl: 'Real-time tracking en communicatie', en: 'Real-time tracking and communication' },
-                        ].map((item, i) => (
-                          <li key={i} className="flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                            <span className="text-sm">{t(item.nl, item.en)}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="text-center p-3 bg-white/50 rounded-lg">
+                      <Ship className="h-6 w-6 text-primary mx-auto mb-2" />
+                      <div className="text-sm font-semibold text-gray-900">20-55 {t('dagen', 'days')}</div>
+                      <div className="text-xs text-gray-600">{t('Zeevracht', 'Sea freight')}</div>
+                    </div>
+                    <div className="text-center p-3 bg-white/50 rounded-lg">
+                      <Train className="h-6 w-6 text-primary mx-auto mb-2" />
+                      <div className="text-sm font-semibold text-gray-900">20-40 {t('dagen', 'days')}</div>
+                      <div className="text-xs text-gray-600">{t('Trein', 'Rail')}</div>
                     </div>
                   </div>
 
-                  <Button size="lg" className="w-full mt-6" onClick={() => scrollToSection('#contact')}>
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-secondary hover:bg-secondary/90 text-white"
+                    onClick={() => scrollToSection('#contact')}
+                  >
                     {t('Ontdek logistiek', 'Discover logistics')}
                   </Button>
                 </div>
-              </Card>
+              </div>
             </div>
           </div>
         </div>
