@@ -12,7 +12,7 @@ import {
   Package, MessageSquare, ClipboardCheck, Truck, CheckCircle2, TrendingUp, Shield, Users,
   Search, TrendingDown, XCircle, Plane, Ship, Train, Building2, Store, Coffee, Rocket,
   ShoppingCart, Globe, Award, MapPin, Mail, Clock, AlertCircle, HelpCircle, 
-  AlertTriangle, Handshake, ShieldCheck, Receipt, Star
+  AlertTriangle, Handshake, ShieldCheck, Receipt, Star, Cog
 } from 'lucide-react';
 import heroWarehouse from '@/assets/content/1_.jpeg';
 import factorySourcing from '@/assets/content/new_4.jpg';
@@ -829,44 +829,87 @@ const Index = () => {
             </div>
 
             {/* Why choose us for logistics */}
-            <div className="mb-12">
-              <h3 className="text-2xl font-bold mb-6 text-center">
-                {t('Onze logistieke voordelen:', 'Our logistics advantages:')}
+            <div className="mb-16">
+              <div className="text-center mb-12">
+                <h3 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
+                  {t('Onze logistieke voordelen', 'Our logistics advantages')}
               </h3>
-              <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  {t(
+                    'Complete transportoplossingen die perfect aansluiten bij jouw behoeften',
+                    'Complete transport solutions that perfectly match your needs'
+                  )}
+                </p>
+              </div>
+              
+              <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {[
-                    { nl: 'Wereldwijde transportoplossingen vanuit China', en: 'Global transport solutions from China' },
-                    { nl: 'All-in tarieven inclusief douane en handling', en: 'All-in rates including customs and handling' },
-                    { nl: 'Snelle en veilige levering naar jouw deur', en: 'Fast and secure delivery to your door' },
-                ].map((item, i) => (
-                    <Card key={i} className="p-6 hover:shadow-xl transition-all duration-300 h-full">
-                      <div className="flex items-start gap-4 h-full">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                    {
+                      icon: Globe,
+                      titleNl: 'Wereldwijde transportoplossingen',
+                      titleEn: 'Global transport solutions',
+                      descNl: 'Van China naar elke bestemming wereldwijd',
+                      descEn: 'From China to any destination worldwide',
+                    },
+                    {
+                      icon: Receipt,
+                      titleNl: 'All-in tarieven',
+                      titleEn: 'All-in rates',
+                      descNl: 'Inclusief douane, handling en documentatie',
+                      descEn: 'Including customs, handling and documentation',
+                    },
+                    {
+                      icon: ShieldCheck,
+                      titleNl: 'Veilige levering',
+                      titleEn: 'Secure delivery',
+                      descNl: 'Snelle en betrouwbare levering naar jouw deur',
+                      descEn: 'Fast and reliable delivery to your door',
+                    },
+                    {
+                      icon: MapPin,
+                      titleNl: 'Real-time tracking',
+                      titleEn: 'Real-time tracking',
+                      descNl: 'Proactieve updates en volledige transparantie',
+                      descEn: 'Proactive updates and full transparency',
+                    },
+                    {
+                      icon: Cog,
+                      titleNl: 'Flexibele opties',
+                      titleEn: 'Flexible options',
+                      descNl: 'Aangepaste transportoplossingen voor elke behoefte',
+                      descEn: 'Customized transport solutions for every need',
+                    },
+                    {
+                      icon: Award,
+                      titleNl: 'Gegarandeerde kwaliteit',
+                      titleEn: 'Guaranteed quality',
+                      descNl: 'Bewezen track record en klanttevredenheid',
+                      descEn: 'Proven track record and customer satisfaction',
+                    }
+                  ].map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={i} className="group">
+                        <Card className="p-8 h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white">
+                          <div className="text-center">
+                            <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                              <Icon className="h-8 w-8 text-white" />
                       </div>
-                        <p className="font-medium flex-grow">{t(item.nl, item.en)}</p>
+                            <h4 className="text-xl font-bold mb-3 text-gray-900">
+                              {t(item.titleNl, item.titleEn)}
+                            </h4>
+                            <p className="text-gray-600 leading-relaxed">
+                              {t(item.descNl, item.descEn)}
+                            </p>
                     </div>
                   </Card>
-                ))}
               </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                  {[
-                    { nl: 'Real-time tracking en proactieve updates', en: 'Real-time tracking and proactive updates' },
-                    { nl: 'Flexibele transportopties voor elke behoefte', en: 'Flexible transport options for every need' },
-                  ].map((item, i) => (
-                    <Card key={i + 3} className="p-6 hover:shadow-xl transition-all duration-300 h-full">
-                      <div className="flex items-start gap-4 h-full">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                    );
+                  })}
             </div>
-                        <p className="font-medium flex-grow">{t(item.nl, item.en)}</p>
                   </div>
-                </Card>
-                ))}
                     </div>
-                    </div>
-                  </div>
 
             {/* Service Fee Information */}
             <div className="mb-4">
@@ -884,8 +927,8 @@ const Index = () => {
                     </p>
                   </div>
                 </Card>
-              </div>
-            </div>
+                    </div>
+                  </div>
 
           </div>
         </div>
