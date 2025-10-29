@@ -101,18 +101,18 @@ const Index = () => {
   const usps = [
     {
       Icon: TrendingUp,
-      textNl: 'Direct inkopen bij fabrikanten',
-      textEn: 'Direct sourcing from manufacturers',
+      textNl: 'Directe inkoop bij fabrikanten in China',
+      textEn: 'Direct sourcing from manufacturers in China',
     },
     {
       Icon: Shield,
-      textNl: 'Beste deals door sterke onderhandelingen',
-      textEn: 'Best deals through strong negotiations',
+      textNl: 'Sterk in onderhandelingen voor maximale besparing',
+      textEn: 'Strong in negotiations to maximize savings',
     },
     {
       Icon: CheckCircle2,
-      textNl: 'Gegarandeerde kwaliteit en controle',
-      textEn: 'Guaranteed quality and control',
+      textNl: 'Transparante all-in tarieven',
+      textEn: 'Transparent all-in pricing',
     },
     {
       Icon: Users,
@@ -387,9 +387,9 @@ const Index = () => {
 
                   <div className="space-y-3 mb-8">
                     {[
-                      { nl: 'Directe fabrikant contact', en: 'Direct manufacturer contact' },
-                      { nl: 'Beste prijzen door onderhandeling', en: 'Best prices through negotiation' },
-                      { nl: 'Kwaliteitscontrole en verificatie', en: 'Quality control and verification' },
+                      { nl: 'Direct inkopen bij fabrikanten', en: 'Direct sourcing from manufacturers' },
+                      { nl: 'Beste deals door sterke onderhandelingen', en: 'Best deals through strong negotiations' },
+                      { nl: 'Gegarandeerde kwaliteit en controle', en: 'Guaranteed quality and control' },
                       ].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
