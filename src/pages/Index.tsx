@@ -101,18 +101,18 @@ const Index = () => {
   const usps = [
     {
       Icon: TrendingUp,
-      textNl: 'Directe inkoop bij fabrikanten in China',
-      textEn: 'Direct sourcing from manufacturers in China',
+      textNl: 'Direct inkopen bij fabrikanten',
+      textEn: 'Direct sourcing from manufacturers',
     },
     {
       Icon: Shield,
-      textNl: 'Sterk in onderhandelingen voor maximale besparing',
-      textEn: 'Strong in negotiations to maximize savings',
+      textNl: 'Beste deals door sterke onderhandelingen',
+      textEn: 'Best deals through strong negotiations',
     },
     {
       Icon: CheckCircle2,
-      textNl: 'Transparante all-in tarieven',
-      textEn: 'Transparent all-in pricing',
+      textNl: 'Gegarandeerde kwaliteit en controle',
+      textEn: 'Guaranteed quality and control',
     },
     {
       Icon: Users,
@@ -183,8 +183,8 @@ const Index = () => {
     {
       questionNl: 'Wat betekent een all-in prijs?',
       questionEn: 'What does all-in pricing mean?',
-      answerNl: 'Onze offertes zijn altijd all-in: één totaalprijs voor sourcing en logistiek, inclusief een 10% handling fee.',
-      answerEn: 'Our quotes are all-in: one total price for sourcing and logistics, including a 10% handling fee.',
+      answerNl: 'Onze offertes zijn altijd all-in: één totaalprijs voor sourcing en logistiek, inclusief een 10% handling fee. Alle bedragen zijn exclusief btw.',
+      answerEn: 'Our quotes are all-in: one total price for sourcing and logistics, including a 10% handling fee. All prices are excluding VAT.',
     },
     {
       questionNl: 'Hoe snel ontvang ik leveranciersvoorstellen?',
@@ -682,7 +682,10 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-2">Basic Sourcing</h3>
-                    <div className="text-4xl font-bold text-primary">€99</div>
+                    <div className="flex items-baseline gap-2">
+                      <div className="text-4xl font-bold text-primary">€99</div>
+                      <div className="text-sm text-muted-foreground">{t('excl. btw', 'excl. VAT')}</div>
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-4 flex-grow">
@@ -723,7 +726,10 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-2">Plus Sourcing</h3>
-                    <div className="text-4xl font-bold text-primary">€199</div>
+                    <div className="flex items-baseline gap-2">
+                      <div className="text-4xl font-bold text-primary">€199</div>
+                      <div className="text-sm text-muted-foreground">{t('excl. btw', 'excl. VAT')}</div>
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-4 flex-grow">
