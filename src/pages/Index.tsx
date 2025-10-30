@@ -386,7 +386,7 @@ const Index = () => {
                   </p>
 
                   <div className="space-y-3 mb-8">
-                    {[
+                      {[
                       { nl: 'Direct inkopen bij fabrikanten', en: 'Direct sourcing from manufacturers' },
                       { nl: 'Beste deals door sterke onderhandelingen', en: 'Best deals through strong negotiations' },
                       { nl: 'Gegarandeerde kwaliteit en controle', en: 'Guaranteed quality and control' },
@@ -401,9 +401,9 @@ const Index = () => {
                   <Button 
                     size="lg" 
                     className="w-full bg-primary hover:bg-primary/90 text-white"
-                    onClick={() => scrollToSection('#contact')}
+                    onClick={() => scrollToSection('#sourcing')}
                   >
-                    {t('Start sourcing', 'Start sourcing')}
+                    {t('Ontdek sourcing', 'Discover Sourcing')}
                   </Button>
                 </div>
                   </div>
@@ -449,7 +449,7 @@ const Index = () => {
                   <Button 
                     size="lg" 
                     className="w-full bg-secondary hover:bg-secondary/90 text-white"
-                    onClick={() => scrollToSection('#contact')}
+                    onClick={() => scrollToSection('#logistics')}
                   >
                     {t('Ontdek logistiek', 'Discover logistics')}
                   </Button>
