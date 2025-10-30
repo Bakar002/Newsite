@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -6,13 +7,14 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
 
   const navItems = [
-    { labelNl: 'Home', labelEn: 'Home', href: '#home' },
-    { labelNl: 'Diensten', labelEn: 'Services', href: '#services' },
-    { labelNl: 'Over ons', labelEn: 'About us', href: '#about' },
-    { labelNl: 'FAQ', labelEn: 'FAQ', href: '#faq' },
-    { labelNl: 'Contact', labelEn: 'Contact', href: '#contact' },
+    { labelNl: 'Home', labelEn: 'Home', href: '#home', type: 'scroll' as const },
+    { labelNl: 'Diensten', labelEn: 'Services', href: '/#services', type: 'hash' as const },
+    { labelNl: 'Over ons', labelEn: 'About us', href: '#about', type: 'scroll' as const },
+    { labelNl: 'FAQ', labelEn: 'FAQ', href: '#faq', type: 'scroll' as const },
+    { labelNl: 'Contact', labelEn: 'Contact', href: '#contact', type: 'scroll' as const },
   ];
 
   const scrollToSection = (href: string) => {
@@ -42,7 +44,20 @@ const Navigation = () => {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                onClick={(e) => {
+                  if (item.type === 'route') {
+                    e.preventDefault();
+                    navigate(item.href);
+                    setMobileMenuOpen(false);
+                  } else if (item.type === 'scroll') {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  } else {
+                    // hash route to home section
+                    // let the browser handle it for smooth anchor scroll
+                    setMobileMenuOpen(false);
+                  }
+                }}
                 className="text-lg font-semibold transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full text-foreground cursor-pointer"
               >
                 {t(item.labelNl, item.labelEn)}
@@ -83,7 +98,20 @@ const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                  onClick={(e) => {
+                    if (item.type === 'route') {
+                      e.preventDefault();
+                      navigate(item.href);
+                      setMobileMenuOpen(false);
+                    } else if (item.type === 'scroll') {
+                      e.preventDefault();
+                      scrollToSection(item.href);
+                      setMobileMenuOpen(false);
+                    } else {
+                      // hash route
+                      setMobileMenuOpen(false);
+                    }
+                  }}
                   className="text-base font-medium text-foreground hover:text-primary transition-colors py-2 cursor-pointer"
                 >
                   {t(item.labelNl, item.labelEn)}

@@ -40,14 +40,14 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-32 pb-20">
+      <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="text-center mb-20">
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl lg:text-4xl font-bold mb-4">
               {t('Onze diensten', 'Our Services')}
             </h1>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               {t(
                 'Kies wat je nodig hebt: alleen sourcing, alleen logistiek of een complete all-in oplossing.',
                 'Choose what you need: sourcing only, logistics only, or a complete all-in solution.'
@@ -56,16 +56,16 @@ const Services = () => {
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-3 gap-12 mb-20 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="p-10 hover:shadow-lg transition-all text-center">
-                <div className="mb-8 flex justify-center">
+              <Card key={index} className="p-8 hover:shadow-lg transition-all text-center">
+                <div className="mb-6 flex justify-center">
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-4">
+                <h3 className="text-xl font-bold mb-3">
                   {t(service.titleNl, service.titleEn)}
                 </h3>
-                <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
+                <p className="text-muted-foreground mb-6 leading-relaxed text-base">
                   {t(service.descNl, service.descEn)}
                 </p>
                 <Button asChild variant="outline" size="lg" className="w-full border-2">
@@ -78,18 +78,18 @@ const Services = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center bg-muted/30 rounded-3xl p-16 max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold mb-6">
+          <div className="text-center bg-muted/30 rounded-3xl p-12 max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">
               {t('Klaar om te starten?', 'Ready to start?')}
             </h2>
-            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               {t(
                 'Kies wat je nodig hebt en start vandaag',
                 'Choose what you need and start today'
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button asChild size="lg" className="text-lg px-10 py-7 h-auto shadow-lg">
+              <Button asChild size="lg" className="text-base px-8 py-6 h-auto shadow-lg">
                 <Link to="/contact">
                   👉 {t('Ontdek onze diensten | Bespaar direct', 'Explore our services | Start saving today')}
                 </Link>

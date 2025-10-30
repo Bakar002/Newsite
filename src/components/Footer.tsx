@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,6 +14,24 @@ import tiktokIcon from '@/assets/social/tiktok.png';
 const Footer = () => {
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
+
+  const scrollToSection = (hash: string) => {
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleFooterNav = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    const isHome = window.location.pathname === '/';
+    if (isHome) {
+      scrollToSection(hash);
+    } else {
+      navigate(`/${hash}`);
+    }
+  };
 
   const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -97,6 +115,34 @@ const Footer = () => {
                 'Your partner for sourcing and logistics from China. Save time and increase your margins.'
               )}
             </p>
+
+          <div className="flex flex-col items-start gap-4">
+            <h4 className="text-sm font-medium text-gray-300 tracking-wide text-center">
+              {/* {t('Volg ons', 'Follow us')} */}
+            </h4>
+            <div className="flex gap-5 justify-center">
+              {[
+                { href: '#', icon: facebookIcon },
+                { href: 'https://www.instagram.com/storeify.co?igsh=MWNudTdhY2Q4NmN3aw%253D%253D&utm_source=qr', icon: instagramIcon },
+                { href: '#', icon: twitterIcon },
+                { href: '#', icon: tiktokIcon },
+              ].map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-10 w-10 rounded-full flex items-center justify-center bg-white border border-white/20 shadow-sm transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-lg hover:shadow-white/30"
+                >
+                  <img
+                    src={item.icon}
+                    alt="social"
+                    className="h-5 w-5 opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
           </div>
 
           {/* Quick Links */}
@@ -106,24 +152,24 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-primary transition-colors">
+                <a href="#home" onClick={(e) => handleFooterNav(e, '#home')} className="text-gray-300 hover:text-primary transition-colors">
                   {t('Home', 'Home')}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/services" className="text-gray-300 hover:text-primary transition-colors">
+                <a href="#services" onClick={(e) => handleFooterNav(e, '#services')} className="text-gray-300 hover:text-primary transition-colors">
                   {t('Diensten', 'Services')}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-primary transition-colors">
+                <a href="#about" onClick={(e) => handleFooterNav(e, '#about')} className="text-gray-300 hover:text-primary transition-colors">
                   {t('Over ons', 'About')}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-primary transition-colors">
+                <a href="#contact" onClick={(e) => handleFooterNav(e, '#contact')} className="text-gray-300 hover:text-primary transition-colors">
                   {t('Contact', 'Contact')}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -135,17 +181,19 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/sourcing" className="text-gray-300 hover:text-primary transition-colors">
+                <a href="#sourcing" onClick={(e) => handleFooterNav(e, '#sourcing')} className="text-gray-300 hover:text-primary transition-colors">
                   {t('Sourcing', 'Sourcing')}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/logistics" className="text-gray-300 hover:text-primary transition-colors">
+                <a href="#logistics" onClick={(e) => handleFooterNav(e, '#logistics')} className="text-gray-300 hover:text-primary transition-colors">
                   {t('Logistiek', 'Logistics')}
-                </Link>
+                </a>
               </li>
             </ul>
+            
           </div>
+          
 
           {/* Contact & Newsletter */}
           <div>
@@ -215,48 +263,15 @@ const Footer = () => {
                   )}
                 </p>
               </div>
+
+              {/* Follow us moved to full-width section below */}
             </div>
           </div>
         </div>
 
-        {/* Social Media */}
-        <div className="border-t border-white/10 mt-14 pt-10">
-  <div className="flex flex-col items-center gap-6">
-    <h4 className="text-sm font-medium text-gray-300 tracking-wide">
-      {t('Volg ons', 'Follow us')}
-    </h4>
+        {/* Follow us - full width, centered */}
 
-    <div className="flex gap-7">
-      {[
-        { href: "#", icon: facebookIcon },
-        { href: "https://www.instagram.com/storeify.co?igsh=MWNudTdhY2Q4NmN3aw%253D%253D&utm_source=qr", icon: instagramIcon },
-        { href: "#", icon: twitterIcon },
-        { href: "#", icon: tiktokIcon },
-      ].map((item, idx) => (
-        <a
-          key={idx}
-          href={item.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            h-12 w-12 rounded-full
-            flex items-center justify-center
-            bg-white border border-white/20
-            shadow-sm
-            transition-all duration-300 ease-out
-            hover:-translate-y-[2px] hover:shadow-lg hover:shadow-white/30
-          "
-        >
-          <img
-            src={item.icon}
-            alt="social"
-            className="h-6 w-6 opacity-90 hover:opacity-100 transition-opacity duration-300"
-          />
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
+
 
 
         {/* Legal Links */}
